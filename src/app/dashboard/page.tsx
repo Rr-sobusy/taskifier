@@ -1,13 +1,22 @@
 import React from 'react'
 import LayoutMain from '@/components/nav-layout/Layout'
+import Head from 'next/head'
+
 
 type Props = {}
 
 const layout = (props: Props) => {
   return (
+    <>
+    <Head>
+      <title>
+        Taskifier
+      </title>
+    </Head>
     <LayoutMain>
-      <h1>this is dashboard</h1>
+      <p>this is dashobard</p>
     </LayoutMain>
+    </>
   )
 }
 
