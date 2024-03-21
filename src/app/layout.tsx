@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={` ${inter.className} flex flex-row`}>
         <SideNav />
-        <main>{children}</main>
+        <main className="md:ml-[70px]">{children}</main>
       </body>
     </html>
   );
