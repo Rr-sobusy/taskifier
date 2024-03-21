@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
+import { ThemeProvider } from "@/components/ThemeProvided";
 import SideNav from "@/components/sidenav/SideNav";
 
 
@@ -20,8 +21,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={` ${inter.className} flex flex-row`}>
-        <SideNav />
-        <main className="md:ml-[70px]">{children}</main>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange>
+          <SideNav />
+          <main className="md:ml-[70px]">{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -20,13 +20,13 @@ const SideNav = () => {
                     SideNavData.map((content, index) => {
                         const Icon = content.icon
                         const isActive = pathName === content.to ? 'text-indigo-700 bg-indigo-100' : 'text-slate-500'
-                        return (<ul>
+                        return (
                             <Link className={`w-10 h-10  flex justify-center items-center rounded-full ${isActive}`} key={index} href={content.to}>
                                 <TooltipHelper title={content.title}>
                                     <Icon size={18} />
                                 </TooltipHelper>
                             </Link>
-                        </ul>)
+                        )
                     })
                 }
             </div>
