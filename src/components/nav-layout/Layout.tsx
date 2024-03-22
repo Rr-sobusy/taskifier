@@ -5,13 +5,13 @@ import { useTheme } from 'next-themes';
 import BreadcrumbsHelper from '../ui helpers/breadcrumbs/BreadcrumbsHelper'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { MdOutlineDarkMode, MdLightMode } from "react-icons/md";
-
-import Image from 'next/image'
+import { usePathname } from 'next/navigation';
 
 
 const LayoutMain = ({ children }: { children: React.ReactNode }) => {
     const { theme, setTheme } = useTheme()
-    console.log(theme)
+    const pathName = usePathname()
+    console.log(pathName)
 
     const ThemeToggler = theme === "light" ? MdOutlineDarkMode : MdLightMode;
     return (
