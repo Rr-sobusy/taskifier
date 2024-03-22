@@ -15,15 +15,11 @@ const BreadcrumbsHelper = (props: Props) => {
         <Breadcrumb>
             <BreadcrumbList>
                 <BreadcrumbItem>
-                    <BreadcrumbLink className="text-[.75rem] tracking-tight font-semibold hover:text-slate-600 text-slate-400" href="/">Home</BreadcrumbLink>
+                    <BreadcrumbLink className="text-[.75rem] tracking-tight font-semibold hover:text-slate-600 text-slate-400" href="/">Tasks</BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                    <BreadcrumbLink className="text-[.75rem] tracking-tight font-semibold hover:text-slate-600 text-slate-400" href="/">Home</BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
-                    <BreadcrumbLink className="text-[.75rem] tracking-tight font-semibold hover:text-slate-600 text-slate-400" href="/">Home</BreadcrumbLink>
+                    <BreadcrumbLink className="text-[.75rem] tracking-tight font-semibold hover:text-slate-600 text-slate-400" href="/">Task Lists</BreadcrumbLink>
                 </BreadcrumbItem>
             </BreadcrumbList>
         </Breadcrumb>

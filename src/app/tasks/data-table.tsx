@@ -33,13 +33,13 @@ interface DataTableProps<TData, TValue> {
    
     return (
       <div className="rounded-md border">
-        <Table className="rounded-xl">
+        <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead className="text-sm font-semibold tracking-tighter bg-accent py-0" key={header.id}>
+                    <TableHead className="text-[.75rem] h-9 text-slate-700 dark:text-slate-300 font-semibold tracking-tight bg-accent py-0" key={header.id}>
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -56,11 +56,12 @@ interface DataTableProps<TData, TValue> {
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
                 <TableRow
+                  className="text-[.75rem] dark:text-slate-300 font-semibold text-slate-700 tracking-tight"
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                    <TableCell className="h-15" key={cell.id}>
                       {flexRender(cell.column.columnDef.cell, cell.getContext())}
                     </TableCell>
                   ))}
