@@ -3,21 +3,40 @@ import LayoutMain from '@/components/nav-layout/Layout'
 import { IoMdAdd } from "react-icons/io";
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input';
+import { columns, Payment } from './columns'
+
+// react-icons
+import { CiFilter } from "react-icons/ci";
+import { DataTable } from './data-table';
 
 type Props = {}
 
-const Page = (props: Props) => {
+async function getData(): Promise<Payment[]> {
+  // Fetch data from your API here.
+  return [
+    {
+      id: "728ed52f",
+      amount: 100,
+      status: "pending",
+      email: "m@example.com",
+    },
+    // ...
+  ]
+}
+const Page = async(props: Props) => {
+  const data = await getData();
   return (
     <LayoutMain>
       <div className="flex justify-between">
-        <h1 className="scroll-m-20 text-xl text-slate-800 font-bold tracking-tight lg:text-2xl">
-          Task Lists
-        </h1>
-        <Input className="w-[14rem] rounded-xl" />
-        <Button size="sm" className="rounded-3xl border-indigo-500 px-3 text-[.75rem] text-indigo-500" variant="outline">Filters</Button>
-        <Button size="sm" className="bg-indigo-500 rounded-3xl flex gap-2 px-3 text-[.75rem]"><span><IoMdAdd /></span>Add New</Button>
+        <div className="flex gap-5">
+          <h1 className="scroll-m-20 text-slate-700 dark:text-slate-300 font-extrabold tracking-tight text-3xl lg:text-2xl">
+            Task Lists
+          </h1>
+          <Button size="sm" className="rounded-3xl flex gap-2 border-primary h-8 text-primary hover:text-primary px-4 text-[.75rem]" variant="outline"><span><CiFilter /></span><span className="md:block md:rounded-full hidden">Filters</span></Button>
+        </div>
+        <Button size="sm" className="rounded-3xl flex gap-2 px-6 text-[.75rem]"><span><IoMdAdd size={20} /></span><span className="hidden md:block rounded-full">Add New</span></Button>
       </div>
-
+      <DataTable columns={columns} data={data} />
     </LayoutMain>
   )
 }
