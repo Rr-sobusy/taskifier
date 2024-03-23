@@ -63,7 +63,7 @@ const Page = async(props: Props) => {
 
         </div>
         <Link href="/tasks/add-new">
-          <Button size="sm" className="rounded-3xl flex gap-1 px-4 text-[.75rem]"><span><IoMdAdd size={20} /></span><span className="hidden md:block rounded-full">Add New</span></Button>
+          <Button size="sm" className="rounded-3xl flex gap-1 h-8 px-4 text-[.75rem]"><span><IoMdAdd size={20} /></span><span className="hidden md:block rounded-full">Add New</span></Button>
         </Link>
       </div>
 
