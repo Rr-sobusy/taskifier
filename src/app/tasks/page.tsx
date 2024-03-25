@@ -16,6 +16,14 @@ async function getData(): Promise<Payment[]> {
   return [
     {
       id : 1,
+      progress : 100,
+      status : 'Not starting',
+      target_date : '22 Mar 2024',
+      task_name : "Go to bath",
+      task_type : "everyday"
+    },
+    {
+      id : 1,
       progress : 80,
       status : 'In progress',
       target_date : '22 Mar 2024',
@@ -25,23 +33,15 @@ async function getData(): Promise<Payment[]> {
     {
       id : 1,
       progress : 80,
-      status : 'Not starting',
+      status : 'Failed',
       target_date : '22 Mar 2024',
       task_name : "Go to bath",
       task_type : "everyday"
     },
     {
       id : 1,
-      progress : 80,
+      progress : 100,
       status : 'Completed',
-      target_date : '22 Mar 2024',
-      task_name : "Go to bath",
-      task_type : "everyday"
-    },
-    {
-      id : 1,
-      progress : 80,
-      status : 'Not starting',
       target_date : '22 Mar 2024',
       task_name : "Go to bath",
       task_type : "everyday"
