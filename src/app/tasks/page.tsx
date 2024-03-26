@@ -12,45 +12,10 @@ import { DataTable } from './data-table';
 type Props = {}
 
 async function getData(): Promise<Payment[]> {
-  // Fetch data from your API here.
-  return [
-    {
-      id : 1,
-      progress : 100,
-      status : 'Not starting',
-      target_date : '22 Mar 2024',
-      task_name : "Go to bath",
-      task_type : "everyday"
-    },
-    {
-      id : 1,
-      progress : 80,
-      status : 'In progress',
-      target_date : '22 Mar 2024',
-      task_name : "Go to bath",
-      task_type : "everyday"
-    },
-    {
-      id : 1,
-      progress : 80,
-      status : 'Failed',
-      target_date : '22 Mar 2024',
-      task_name : "Go to bath",
-      task_type : "everyday"
-    },
-    {
-      id : 1,
-      progress : 100,
-      status : 'Completed',
-      target_date : '22 Mar 2024',
-      task_name : "Go to bath",
-      task_type : "everyday"
-    },
-  
-    // ...
-  ]
+  const data = await fetch('http://localhost:3000/tasks/api').then(res => res.json());
+  return data;
 }
-const Page = async(props: Props) => {
+const Page = async (props: Props) => {
   const data = await getData();
   return (
     <LayoutMain>
@@ -74,4 +39,4 @@ const Page = async(props: Props) => {
   )
 }
 
-export default Page
+export default Page 
