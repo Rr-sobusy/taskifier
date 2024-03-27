@@ -1,26 +1,31 @@
+
 import React from 'react'
 import {
     Breadcrumb,
     BreadcrumbItem,
-    BreadcrumbLink,
     BreadcrumbList,
-    BreadcrumbPage,
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 
-type Props = {}
+import Link from 'next/link'
 
-const BreadcrumbsHelper = (props: Props) => {
+
+
+const BreadcrumbsHelper = ({ route }: { route: string[] }) => {
+
     return (
         <Breadcrumb>
             <BreadcrumbList>
-                <BreadcrumbItem>
-                    <BreadcrumbLink className="text-[.75rem] tracking-tight font-semibold hover:text-slate-600 text-slate-400" href="/">Tasks</BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
-                    <BreadcrumbLink className="text-[.75rem] tracking-tight font-semibold hover:text-slate-600 text-slate-400" href="/">Task Lists</BreadcrumbLink>
-                </BreadcrumbItem>
+                {
+                    route.map((item, index) => <>
+                        <BreadcrumbItem key={index} className="capitalize">
+                            <BreadcrumbSeparator />
+                            <Link className={`text-[.75rem] ${index === route.length - 1 ? 'text-slate-700' : 'text-slate-400'}  tracking-tight font-semibold hover:text-slate-600 dark:text-slate-300`} href={`/${item}`}>
+                                {item}
+                            </Link>
+                        </BreadcrumbItem>
+                    </>)
+                }
             </BreadcrumbList>
         </Breadcrumb>
     )
