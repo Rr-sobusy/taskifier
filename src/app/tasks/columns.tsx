@@ -34,7 +34,7 @@ export const columns: ColumnDef<Payment>[] = [
     accessorKey: "progress",
     header: "progress",
     cell: ({ row }) => (<div className="flex items-center gap-4">
-      <Progress className="h-[.25rem]" value={row.getValue("progress")} />
+      <Progress className={`h-[.25rem]`} value={row.getValue("progress")} />
       <p>{row.getValue("progress") + "%"}</p>
     </div>)
   },

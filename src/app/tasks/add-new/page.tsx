@@ -2,6 +2,7 @@
 
 import React from 'react'
 import LayoutMain from '@/components/nav-layout/Layout'
+import { AvatarFallback, Avatar , AvatarImage} from '@radix-ui/react-avatar'
 
 import Timeline from '@/components/ui/timeline'
 
@@ -14,12 +15,7 @@ const Page = (props: Props) => {
         New Task
       </h1>
 
-      <div className="h-24">
-        <Timeline />
-      </div>
-      <div className="h-24">
-        <Timeline />
-      </div>
+      <div></div>
     </LayoutMain>
   )
 }

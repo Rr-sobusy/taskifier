@@ -57,11 +57,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-.__custom {
-    @apply relative  flex w-4 h-4 rounded-full bg-primary
-}
-
-.__custom::before {
-  @apply absolute content-[''] top-4 left-[37%] h-full w-1 bg-accent
-}

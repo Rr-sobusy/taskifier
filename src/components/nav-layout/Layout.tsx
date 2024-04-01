@@ -26,8 +26,6 @@ const LayoutMain = ({ children }: { children: React.ReactNode }) => {
                     </Avatar>
                 </div>
             </header>
-
-
             {children}
         </section>
     )
