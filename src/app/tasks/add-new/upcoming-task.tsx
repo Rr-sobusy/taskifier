@@ -17,7 +17,7 @@ const UpcomingTask = ({ className }: { className?: string }) => {
     return (
         <Card className={cn(className)}>
             <CardHeader>
-                <CardTitle className="text-slate-700 text-base">Upcoming Task</CardTitle>
+                <CardTitle className="text-slate-700 text-base scroll-m-10 font-extrabold tracking-tight">Upcoming Task</CardTitle>
             </CardHeader>
             <CardContent>
                 <p>Card Content</p>
