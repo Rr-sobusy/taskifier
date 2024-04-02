@@ -2,9 +2,10 @@
 
 import React from 'react'
 import LayoutMain from '@/components/nav-layout/Layout'
-import { AvatarFallback, Avatar , AvatarImage} from '@radix-ui/react-avatar'
+import UpcomingTask from './upcoming-task'
 
-import Timeline from '@/components/ui/timeline'
+import { Input } from '@/components/ui/input'
+
 
 type Props = {}
 
@@ -15,7 +16,21 @@ const Page = (props: Props) => {
         New Task
       </h1>
 
-      <div></div>
+      <div className="flex flex-col md:flex-row gap-3">
+          <div className="md:basis-3/4 py-10">
+              <form className="flex flex-row gap-3" action="">
+                  <div className="flex flex-1 flex-col gap-1">
+                    <p className="scroll-m-20 font-extrabold text-sm text-slate-700">Task Title</p>
+                    <Input type="text" />
+                  </div>
+                  <div className="flex flex-1 flex-col gap-1">
+                    <p className="scroll-m-20 font-extrabold text-sm text-slate-700">Task Title</p>
+                    <Input type="text" />
+                  </div>
+              </form>
+          </div>
+          <UpcomingTask className="md:basis-1/3" />
+      </div>
     </LayoutMain>
   )
 }
