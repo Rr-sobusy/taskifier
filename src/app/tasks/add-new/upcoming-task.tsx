@@ -3,28 +3,33 @@ import React from 'react'
 import {
     Card,
     CardContent,
-    CardDescription,
     CardFooter,
+    CardDescription,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
-
-import { cn } from '@/lib/utils'
+import { Separator } from '@/components/ui/separator'
+import { Badge } from '@/components/ui/badge'
 
 
 
 const UpcomingTask = ({ className }: { className?: string }) => {
     return (
-        <Card className={cn(className)}>
+        <Card className={className}>
             <CardHeader>
-                <CardTitle className="text-slate-700 text-base scroll-m-10 font-extrabold tracking-tight">Upcoming Task</CardTitle>
+                <CardTitle className="text-base text-slate-700 dark:text-slate-200 font-extrabold">Upcoming Tasks</CardTitle>
             </CardHeader>
             <CardContent>
-                <p>Card Content</p>
+                <Card className='pt-5'>
+                    <CardContent>
+                        <Badge variant="outline" className="py-1 bg-green-200">Doing</Badge>
+
+                    </CardContent>
+                    <CardFooter className="flex justify-between">
+                    <Badge variant="outline" className="py-1 bg-accent">04 Apr</Badge>
+                    </CardFooter>
+                </Card>
             </CardContent>
-            <CardFooter>
-                <p>Card Footer</p>
-            </CardFooter>
         </Card>
     )
 }
