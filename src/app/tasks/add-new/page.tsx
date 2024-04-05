@@ -33,7 +33,9 @@ const Page = (props: Props) => {
                   </div>
               </form>
           </div>
+          <div>
           <UpcomingTask className="md:basis-1/3" />
+          </div>
       </div>
     </LayoutMain>
   )

@@ -5,7 +5,6 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvided";
 import SideNav from "@/components/sidenav/SideNav";
 
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -26,8 +25,9 @@ export default function RootLayout({
           defaultTheme="light"
           enableSystem
           disableTransitionOnChange>
-          <SideNav />
-          <main className="md:ml-[70px]">{children}</main>
+          <main><SideNav />
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>
