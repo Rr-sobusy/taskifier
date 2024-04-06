@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react'
-import LayoutMain from '@/components/nav-layout/Layout'
+import LayoutMain from '@/components/layout/nav-layout/Layout'
 import UpcomingTask from './upcoming-task'
 
 import { Input } from '@/components/ui/input'

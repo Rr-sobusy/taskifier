@@ -1,5 +1,5 @@
 import React from 'react'
-import LayoutMain from '@/components/nav-layout/Layout'
+import LayoutMain from '@/components/layout/nav-layout/Layout'
 import Head from 'next/head'
 
 

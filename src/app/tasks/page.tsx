@@ -1,5 +1,5 @@
 import React from 'react'
-import LayoutMain from '@/components/nav-layout/Layout'
+import LayoutMain from '@/components/layout/nav-layout/Layout'
 import { IoMdAdd } from "react-icons/io";
 import { Button } from '@/components/ui/button'
 import Link from 'next/link';

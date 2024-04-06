@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -6,12 +8,12 @@ import { usePathname } from 'next/navigation'
 import { SideNavData } from './side-nav-data'
 import Image from 'next/image'
 
-import TooltipHelper from '../ui helpers/tooltip/TooltipHelper'
+import TooltipHelper from '@/components/ui helpers/tooltip/TooltipHelper'
 
 const SideNav = () => {
     const pathName = usePathname();
     return (
-        <aside className="w-[70px] hidden md:flex flex-col fixed items-center border-r min-h-screen bg-background">
+        <aside className="w-[70px] hidden md:flex flex-col items-center fixed border-r min-h-screen bg-background">
             <Image className="mt-5" alt="" src="\icon.svg" width={40} height={40} />
             <div className="flex flex-col mt-7 gap-1 justify-center items-center">
                 {

@@ -3,7 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 import { ThemeProvider } from "@/components/ThemeProvided";
-import SideNav from "@/components/sidenav/SideNav";
+import { SideNav, SideNavData, SideNavTypes } from "@/components/layout/sidenav";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,9 +26,8 @@ export default function RootLayout({
           defaultTheme="light"
           enableSystem
           disableTransitionOnChange>
-          <main><SideNav />
-            {children}
-          </main>
+          <SideNav />
+          <main>{children}</main>
         </ThemeProvider>
       </body>
     </html>

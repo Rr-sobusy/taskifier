@@ -36,7 +36,7 @@ const UpcomingTask = ({ className }: { className?: string }) => {
                         <Badge className="bg-blue-100 text-blue-700 py-1" variant="outline">25 Apr 2024</Badge>
                     </CardFooter>
                 </Card>
-                {/* <Card className='pt-5'>
+                <Card className='pt-5'>
                     <CardContent>
                         <h3 className="font-bold text-sm text-slate-700">Create anassssssrwarwarw UI</h3>
                         <h5 className="text-slate-500 text-[.750rem]">Lorem Ipsum safdafafsaf</h5>
@@ -49,7 +49,7 @@ const UpcomingTask = ({ className }: { className?: string }) => {
                         <Progress  className="h-[.25rem]" value={50} />
                         <Badge className="bg-blue-100 text-blue-700 py-1" variant="outline">25 Apr 2024</Badge>
                     </CardFooter>
-                </Card> */}
+                </Card>
             </CardContent>
             
         </Card>
