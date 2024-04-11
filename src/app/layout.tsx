@@ -5,6 +5,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvided";
 import { SideNav, SideNavData, SideNavTypes } from "@/components/layout/sidenav";
 
+import NextTopLoader from 'nextjs-toploader';
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +29,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange>
           <SideNav />
-          <main>{children}</main>
+          <main>
+            <NextTopLoader
+              showSpinner={false}
+            />
+            {children}</main>
         </ThemeProvider>
       </body>
     </html>
