@@ -31,6 +31,7 @@ export default function RootLayout({
           <SideNav />
           <main>
             <NextTopLoader
+              color="#2563EB"
               showSpinner={false}
             />
             {children}</main>
