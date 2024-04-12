@@ -47,8 +47,8 @@ const UpcomingTask = ({ ...rest }) => {
                                     <h5 className="text-slate-600 text-[.750rem] font-semibold">Progress
                                     </h5>
                                 </div>
-                               <Badge variant="outline">{`${content.progress}%`}</Badge>
-                              
+                                <h5 className="text-slate-700 text-[.800rem] font-bold py-1 px-2 border rounded-xl">3 days left
+                                </h5>
                             </div>
                             <Progress className="h-[.25rem]" value={content.progress} />
                             <Badge className="bg-blue-100 text-blue-700 py-1" variant="outline">25 Apr 2024</Badge>
