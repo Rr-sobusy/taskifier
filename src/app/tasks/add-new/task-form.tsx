@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import DatePicker from '@/components/ui helpers/date-picker/DatePicker'
 import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
 
 import DropdownSelect from '@/components/ui helpers/select/DropdownSelect';
 
@@ -33,6 +34,15 @@ const TaskForm = ({ className }: { className?: string }) => {
                         <DatePicker>
                             <Button className="text-slate-600 flex gap-3" variant="outline"><CiCalendarDate /> Select date </Button>
                         </DatePicker>
+                        <div className="flex items-center space-x-2 mt-2">
+                            <Checkbox className="border border-black data-[state=checked]:bg-black w-5 h-5 dark:border-white" id="terms" />
+                            <label
+                                htmlFor="terms"
+                                className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-slate-600 dark:text-slate-300"
+                            >
+                                Break-down tasks into sub branches
+                            </label>
+                        </div>
                     </div>
                 </form>
             </CardContent>
