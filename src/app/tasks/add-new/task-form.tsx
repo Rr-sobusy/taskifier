@@ -30,7 +30,7 @@ const TaskForm = ({ className }: { className?: string }) => {
                         <Textarea placeholder='Enter task description.' />
                         <label className="text-sm font-semibold text-slate-600">Priority Level <span className="text-red-500">*</span></label>
                         <DropdownSelect items={["Highest", "Medium", "Least"]} triggerPlaceholder="Select Priority level" />
-                        <label className="text-sm font-semibold text-slate-600">Task Completion date</label>
+                        <label className="text-sm font-semibold text-slate-600">Task Completion date <span className="text-red-500">*</span></label>
                         <DatePicker>
                             <Button className="text-slate-600 flex gap-3" variant="outline"><CiCalendarDate /> Select date </Button>
                         </DatePicker>
