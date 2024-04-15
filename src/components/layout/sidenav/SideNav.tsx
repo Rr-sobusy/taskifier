@@ -12,7 +12,7 @@ import TooltipHelper from '@/components/ui helpers/tooltip/TooltipHelper'
 
 const SideNav = () => {
     const pathName = usePathname();
-    const basePath = pathName.split("/").filter(path=>path)
+    const basePath = pathName.split("/").filter(path=>path);
     return (
         <aside className="w-[70px] hidden md:flex flex-col items-center fixed border-r min-h-screen bg-background">
             <Image className="mt-5" alt="" src="\icon.svg" width={40} height={40} />
@@ -20,7 +20,7 @@ const SideNav = () => {
                 {
                     SideNavData.map((content, index) => {
                         const Icon = content.icon
-                        const isActive = "/" +  basePath[0].toString() ===  content.to ? 'text-primary bg-indigo-100' : 'text-slate-500'
+                        const isActive = "/" +  basePath[0] ===  content.to ? 'text-primary bg-indigo-100' : 'text-slate-500'
                         return (
                             <Link className={`w-10 h-10  flex justify-center items-center rounded-full ${isActive}`} key={index} href={content.to}>
                                 <TooltipHelper title={content.title}>

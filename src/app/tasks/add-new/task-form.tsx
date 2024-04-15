@@ -43,6 +43,17 @@ const TaskForm = ({ className }: { className?: string }) => {
                                 Break-down tasks into sub branches
                             </label>
                         </div>
+
+                        {/* **** Add sub branch task */}
+
+                        <div className="flex flex-col gap-2">
+                            {
+                                ["rex","randy"].map((cntx, index) => (<div className='flex w-full gap-2'>
+                                    <Input className="w-full" type='text' />
+                                    <Button variant="outline">Remove</Button>
+                                </div>))
+                            }
+                        </div>
                     </div>
                 </form>
             </CardContent>
