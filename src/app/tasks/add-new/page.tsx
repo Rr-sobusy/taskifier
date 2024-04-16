@@ -14,6 +14,7 @@ import { IoReturnUpBack } from "react-icons/io5";
 type Props = {}
 
 const Page = (props: Props) => {
+ 
   return (
     <LayoutMain>
       <div className="flex flex-col">
