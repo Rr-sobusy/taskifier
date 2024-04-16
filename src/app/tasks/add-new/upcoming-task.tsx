@@ -30,7 +30,7 @@ const UpcomingTask = ({ ...rest }) => {
     return (
         <Card {...rest}>
             <CardHeader>
-                <CardTitle className="text-base text-slate-700 dark:text-slate-200 font-extrabold">Upcoming Tasks</CardTitle>
+                <CardTitle className="text-base text-slate-700 dark:text-slate-200 font-extrabold">Upcoming Tasks (4)</CardTitle>
             </CardHeader>
             <CardContent className="flex flex-col gap-3 overflow-hidden">
 

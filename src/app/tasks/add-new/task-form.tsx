@@ -15,6 +15,8 @@ import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import DropdownSelect from '@/components/ui helpers/select/DropdownSelect';
 
+import TooltipHelper from '@/components/ui helpers/tooltip/TooltipHelper';
+
 import { v4 } from 'uuid';
 
 // react-icons
@@ -84,9 +86,11 @@ const TaskForm = ({ className }: { className?: string }) => {
 
                         <div className="flex flex-col gap-3 mt-2">
                             {
-                                subBranchState.map((ctx, index) => (<div key={index} className='flex w-full gap-2'>
+                                subBranchState.map((ctx, index) => (<div key={index} className='flex items-center w-full gap-2'>
                                     <Input onChange={(event) => rowChangeHandler(event.target.value, ctx.id)} value={ctx.branchTitle} disabled={!subBranchMode} className="w-full" type='text' />
-                                    <Button type="button" onClick={() => rowDeleteHandler(ctx.id)} disabled={!subBranchMode} title='Remove row' variant="outline"><RiDeleteBin2Line size={18} /></Button>
+                                    <TooltipHelper title='Remove row'>
+                                        <Button type="button" onClick={() => rowDeleteHandler(ctx.id)} disabled={!subBranchMode} variant="outline"><RiDeleteBin2Line size={18} /></Button>
+                                    </TooltipHelper>
                                 </div>))
                             }
                             <div className="flex gap-2 justify-end">
