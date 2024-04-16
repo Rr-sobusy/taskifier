@@ -47,7 +47,7 @@ const UpcomingTask = ({ ...rest }) => {
                                     <h5 className="text-slate-600 text-[.750rem] font-semibold">Progress
                                     </h5>
                                 </div>
-                                <h5 className="text-slate-700 text-[.800rem] font-bold py-1 px-2 border rounded-xl">3 days left
+                                <h5 className="text-red-500 text-[.800rem] font-bold py-1 px-2 border border-red-400  rounded-xl">3 days left
                                 </h5>
                             </div>
                             <Progress className="h-[.25rem]" value={content.progress} />

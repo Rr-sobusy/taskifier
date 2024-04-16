@@ -39,6 +39,22 @@ const TaskForm = ({ className }: { className?: string }) => {
 
     }, [])
 
+    const rowChangeHandler = (title:string, id: string) => {
+        const state = [...subBranchState];
+        let toEditKey = state.findIndex((state)=> state.id === id);
+        state[toEditKey] = {id: id, branchTitle: title};
+        setSubBranchState(state);
+    }
+
+    const addRow = () => {
+        setSubBranchState((state) => [...state, { id: v4(), branchTitle: "" }]);
+    }
+
+    const rowDeleteHandler = (id: string) => {
+        const retainedRow = subBranchState.filter((state)=> state.id !== id);
+        setSubBranchState(retainedRow);
+    }
+
     return (
         <Card className={className}>
 
@@ -59,7 +75,6 @@ const TaskForm = ({ className }: { className?: string }) => {
                         <div className="flex items-center space-x-2 mt-2">
                             <Checkbox onCheckedChange={() => setSubBranchMode(prev => !prev)} className="border border-black data-[state=checked]:bg-black w-5 h-5 dark:border-white" id="terms" />
                             <label
-                                htmlFor="terms"
                                 className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-slate-600 dark:text-slate-300"
                             >
                                 Break-down tasks into sub branches
@@ -70,13 +85,13 @@ const TaskForm = ({ className }: { className?: string }) => {
 
                         <div className="flex flex-col gap-3 mt-2">
                             {
-                                subBranchState.map((cntx, index) => (<div className='flex w-full gap-2'>
-                                    <Input disabled={!subBranchMode} className="w-full" type='text' />
-                                    <Button disabled={!subBranchMode} title='Remove row' variant="outline"><RiDeleteBin2Line size={18} /></Button>
+                                subBranchState.map((ctx, index) => (<div key={index} className='flex w-full gap-2'>
+                                    <Input onChange={(event)=> rowChangeHandler(event.target.value, ctx.id)} value={ctx.branchTitle} disabled={!subBranchMode} className="w-full" type='text' />
+                                    <Button type="button" onClick={()=>rowDeleteHandler(ctx.id)} disabled={!subBranchMode} title='Remove row' variant="outline"><RiDeleteBin2Line size={18} /></Button>
                                 </div>))
                             }
                             <div className="flex gap-2 justify-end">
-                                <Button disabled={!subBranchMode} variant="outline" className="flex gap-2"> <span><IoMdAdd size={18} /></span>Add Row</Button>
+                                <Button type='button' onClick={addRow} disabled={!subBranchMode} variant="outline" className="flex gap-2"> <span><IoMdAdd size={18} /></span>Add Row</Button>
                                 <Button type="submit">Submit</Button>
                             </div>
                         </div>
