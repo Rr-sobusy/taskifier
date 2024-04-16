@@ -34,15 +34,14 @@ const TaskForm = ({ className }: { className?: string }) => {
         event.preventDefault();
 
         const formData = new FormData(event.currentTarget);
-        const title = formData.get("taskTitle");
-        alert(title);
+        console.log(subBranchState);
 
     }, [])
 
-    const rowChangeHandler = (title:string, id: string) => {
+    const rowChangeHandler = (title: string, id: string) => {
         const state = [...subBranchState];
-        let toEditKey = state.findIndex((state)=> state.id === id);
-        state[toEditKey] = {id: id, branchTitle: title};
+        let toEditKey = state.findIndex((state) => state.id === id);
+        state[toEditKey] = { id: id, branchTitle: title };
         setSubBranchState(state);
     }
 
@@ -51,7 +50,7 @@ const TaskForm = ({ className }: { className?: string }) => {
     }
 
     const rowDeleteHandler = (id: string) => {
-        const retainedRow = subBranchState.filter((state)=> state.id !== id);
+        const retainedRow = subBranchState.filter((state) => state.id !== id);
         setSubBranchState(retainedRow);
     }
 
@@ -86,8 +85,8 @@ const TaskForm = ({ className }: { className?: string }) => {
                         <div className="flex flex-col gap-3 mt-2">
                             {
                                 subBranchState.map((ctx, index) => (<div key={index} className='flex w-full gap-2'>
-                                    <Input onChange={(event)=> rowChangeHandler(event.target.value, ctx.id)} value={ctx.branchTitle} disabled={!subBranchMode} className="w-full" type='text' />
-                                    <Button type="button" onClick={()=>rowDeleteHandler(ctx.id)} disabled={!subBranchMode} title='Remove row' variant="outline"><RiDeleteBin2Line size={18} /></Button>
+                                    <Input onChange={(event) => rowChangeHandler(event.target.value, ctx.id)} value={ctx.branchTitle} disabled={!subBranchMode} className="w-full" type='text' />
+                                    <Button type="button" onClick={() => rowDeleteHandler(ctx.id)} disabled={!subBranchMode} title='Remove row' variant="outline"><RiDeleteBin2Line size={18} /></Button>
                                 </div>))
                             }
                             <div className="flex gap-2 justify-end">
