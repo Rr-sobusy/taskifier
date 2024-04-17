@@ -10,7 +10,7 @@ export function GET(req: NextRequest, res: NextResponse) {
                         status: 'Not starting',
                         target_date: '22 Mar 2024',
                         task_name: "Go to bath",
-                        task_type: "everyday"
+                        task_type: "incidental"
                 },
                 {
                         id: 1,
@@ -18,7 +18,7 @@ export function GET(req: NextRequest, res: NextResponse) {
                         status: 'In progress',
                         target_date: '22 Mar 2024',
                         task_name: "Go to bath",
-                        task_type: "everyday"
+                        task_type: "incidental"
                 },
                 {
                         id: 1,
@@ -26,7 +26,7 @@ export function GET(req: NextRequest, res: NextResponse) {
                         status: 'Failed',
                         target_date: '22 Mar 2024',
                         task_name: "Go to bath",
-                        task_type: "everyday"
+                        task_type: "incidental"
                 },
                 {
                         id: 1,
@@ -34,7 +34,7 @@ export function GET(req: NextRequest, res: NextResponse) {
                         status: 'Completed',
                         target_date: '22 Mar 2024',
                         task_name: "Go to bath",
-                        task_type: "everyday"
+                        task_type: "incidental"
                 }
         ]
 
