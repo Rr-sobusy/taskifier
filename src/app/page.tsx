@@ -1,9 +1,11 @@
 import Image from "next/image";
 
+import LayoutMain from "@/components/layout/nav-layout/Layout";
+
 export default function Home() {
   return (
-    <main>
-      rex randy
-    </main>
+    <LayoutMain>
+      <h2>rex</h2>
+    </LayoutMain>
   );
 }

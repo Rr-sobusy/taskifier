@@ -15,13 +15,15 @@ const LayoutMain = ({ children }: { children: React.ReactNode }) => {
     const pathName = usePathname()
     const route = pathName.split("/").filter(path=>path)
 
-    const ThemeToggler = theme === "light" ? MdOutlineDarkMode : MdLightMode;
+    const changeTheme = ()=>{
+        setTheme(theme === "light" ? "dark" : "light");
+    }
     return (
         <section className="flex flex-col w-screen md:w-[calc(100vw-70px)] md:relative left-[58px] md:px-8 px-3 md:min-h-[calc(100vh+10px)]">
             <header className="h-[75px] items-center flex justify-between">
                 <BreadcrumbsHelper route={route} />
                 <div className="flex justify-center items-center gap-4">
-                    <ThemeToggler onClick={() => theme === "light" ? setTheme("dark") : setTheme("light")} size={22} className={`${theme === "light" ? 'text-slate-600' : 'text-slate-100'} cursor-pointer`} />
+                    <span className="cursor-pointer" onClick={changeTheme}>{theme === "dark" ? <MdLightMode size={22} /> : <MdOutlineDarkMode size={22} />}</span>
                     <Avatar>
                         <AvatarImage src="/man.svg" />
                         <AvatarFallback></AvatarFallback>
