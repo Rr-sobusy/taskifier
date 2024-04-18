@@ -13,20 +13,31 @@ datasource db {
   url      = "postgresql://postgres:3J^3Pm^Mp5@localhost:5432/prisma?schema=public"
 }
 
+model Users {
+  userId        Int     @id @default(autoincrement())
+  userName      String
+  password      String
+  tasks         Tasks[]
+}
+
 model Tasks {
   taskId          Int      @id @default(autoincrement())
+  taskUser        Users    @relation(fields: [userId], references: [userId])
+  userId          Int
   taskName        String 
   description     String?
   completionDate  DateTime
-  isFinished      Boolean
+  isFinished      Boolean?
   taskLists       TaskList[]
   createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  updatedAt       DateTime? @updatedAt
 }
 
 model TaskList {
-  id            Int       @id @default(autoincrement())
-  taskList      Tasks     @relation(fields: [taskId], references: [taskId], onDelete: Cascade)
-  taskId        Int
-
+  id              Int       @id @default(autoincrement())
+  taskList        Tasks     @relation(fields: [taskId], references: [taskId], onDelete: Cascade)
+  taskId          Int
+  subName         String
+  subDescription  String
+  isFinished      Boolean?
 }
