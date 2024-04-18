@@ -3,12 +3,40 @@
 import React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import Image from 'next/image'
+
+
+import {
+    Sheet,
+    SheetContent,
+    SheetDescription,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger,
+} from "@/components/ui/sheet"
+import { Button } from '@/components/ui/button'
 
 
 import { SideNavData } from './side-nav-data'
-import Image from 'next/image'
-
 import TooltipHelper from '@/components/ui helpers/tooltip/TooltipHelper'
+
+// side nav portal for small devices
+export const SideNavSm = ({ children }: { children: React.ReactNode }) => (<Sheet>
+    <SheetTrigger>{children}</SheetTrigger>
+    <SheetContent side="left">
+        <SheetHeader>
+            <SheetTitle className="flex justify-center"><Image height={50} width={50} alt='' src="/icon.svg" /></SheetTitle>
+            <SheetDescription className="flex flex-col items-start gap-1">
+              
+            {
+                SideNavData.map((content,index) => (<Link className="py-3 px-2 border w-full text-start"  key={index} href={content.to} >{content.title}</Link>))
+            }
+            </SheetDescription>
+            <Link href="/tasks"><Button>CLick</Button></Link>
+        </SheetHeader>
+    </SheetContent>
+</Sheet>)
+
 
 const SideNav = () => {
     const pathName = usePathname();

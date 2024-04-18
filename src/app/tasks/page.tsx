@@ -12,7 +12,7 @@ import { DataTable } from './data-table';
 type Props = {}
 
 async function getData(): Promise<Payment[]> {
-  const data = await fetch('http://localhost:3001/tasks/api',{cache : 'no-cache'}).then(res => res.json());
+  const data = await fetch('http://localhost:3000/tasks/api',{cache : 'no-cache'}).then(res => res.json());
   return data;
 }
 const Page = async (props: Props) => {

@@ -10,7 +10,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://postgres:3J^3Pm^Mp5@localhost:5432/prisma?schema=public"
+  url      = env("DATABASE_URL")
 }
 
 model Users {
