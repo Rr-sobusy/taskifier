@@ -67,6 +67,8 @@ const TaskForm = ({ className }: { className?: string }) => {
                         <Input name='taskTitle' className="w-full" type='Text' placeholder='Enter Task Title' />
                         <label className="text-sm font-semibold text-slate-600">Task Description</label>
                         <Textarea placeholder='Enter task description.' />
+                        <label className="text-sm font-semibold text-slate-600">Task Type</label>
+                        <DropdownSelect items={["Development", "Testing", "Least"]} triggerPlaceholder="Select Priority level" />
                         <label className="text-sm font-semibold text-slate-600">Priority Level <span className="text-red-500">*</span></label>
                         <DropdownSelect items={["Highest", "Medium", "Least"]} triggerPlaceholder="Select Priority level" />
                         <label className="text-sm font-semibold text-slate-600">Task Completion date <span className="text-red-500">*</span></label>

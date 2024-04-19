@@ -11,6 +11,7 @@ import { Badge } from '@/components/ui/badge'
 import { Progress } from '@/components/ui/progress';
 
 import { TbProgressCheck } from "react-icons/tb";
+import { IoArrowForwardOutline } from "react-icons/io5";
 
 const data = [{
     title: 'Create anassssssrwarwarw UI',
@@ -51,7 +52,10 @@ const UpcomingTask = ({ ...rest }) => {
                                 </h5>
                             </div>
                             <Progress className="h-[.25rem]" value={content.progress} />
-                            <Badge className="bg-blue-100 text-blue-700 py-1" variant="outline">25 Apr 2024</Badge>
+                           <div className='flex justify-between w-full items-center'>
+                           <Badge className="bg-blue-100 text-blue-700 py-1" variant="outline">25 Apr 2024</Badge>
+                            <IoArrowForwardOutline className="text-slate-700 dark:text-slate-200 cursor-pointer" size={19} />
+                           </div>
                         </CardFooter>
                     </Card>))
                 }
