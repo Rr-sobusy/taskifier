@@ -54,7 +54,7 @@ const UpcomingTask = ({ ...rest }) => {
                             <Progress className="h-[.25rem]" value={content.progress} />
                            <div className='flex justify-between w-full items-center'>
                            <Badge className="bg-blue-100 text-blue-700 py-1" variant="outline">25 Apr 2024</Badge>
-                            <IoArrowForwardOutline className="text-slate-700 dark:text-slate-200 cursor-pointer" size={19} />
+                            <IoArrowForwardOutline className="text-slate-700 dark:text-slate-200 anim" size={19} />
                            </div>
                         </CardFooter>
                     </Card>))

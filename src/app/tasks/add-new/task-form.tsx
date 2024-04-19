@@ -97,7 +97,7 @@ const TaskForm = ({ className }: { className?: string }) => {
                             }
                             <div className="flex gap-2 justify-end">
                                 <Button type='button' onClick={addRow} disabled={!subBranchMode} variant="outline" className="flex gap-2"> <span><IoMdAdd size={18} /></span>Add Row</Button>
-                                <Button type="submit">Submit</Button>
+                                <Button className="px-8" type="submit">Submit</Button>
                             </div>
                         </div>
                     </div>
