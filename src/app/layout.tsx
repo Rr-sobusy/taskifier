@@ -25,7 +25,7 @@ export default function RootLayout({
       <body className={` ${inter.className} flex flex-row`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange>
           <SideNav />

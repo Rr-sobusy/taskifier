@@ -3,12 +3,6 @@ import React from 'react'
 import LayoutMain from '@/components/layout/nav-layout/Layout'
 import TaskForm from './task-form'
 import UpcomingTask from './upcoming-task'
-import Link from 'next/link'
-
-import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
-
-import { IoReturnUpBack } from "react-icons/io5";
 
 
 type Props = {}
@@ -25,6 +19,7 @@ const Page = (props: Props) => {
       </div>
 
       <div className="flex flex-col md:flex-row gap-6 mt-8">
+
           <TaskForm className='flex flex-col md:flex-row gap-3 md:basis-3/4 lg:basis-2/3' />
           <UpcomingTask className="md:basis-1/4 lg:basis-1/3" />
 
