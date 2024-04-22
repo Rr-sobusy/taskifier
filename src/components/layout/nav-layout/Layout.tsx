@@ -8,6 +8,8 @@ import { usePathname } from 'next/navigation';
 
 import { SideNavSm } from '../sidenav';
 
+import { SideNav } from '../sidenav';
+
 import { MdOutlineDarkMode, MdLightMode } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
 
@@ -24,22 +26,24 @@ const LayoutMain = ({ children }: { children: React.ReactNode }) => {
         setTheme(theme === "light" ? "dark" : "light");
     }
     return (
-        <section className="flex flex-col w-screen md:w-[calc(100vw-70px)] md:relative left-[58px] md:px-8 px-3 md:min-h-[calc(100vh+10px)]">
-            <header className="h-[75px] items-center flex justify-between">
-                <BreadcrumbsHelper route={route} />
-                <div className="flex justify-center items-center gap-4">
-                    <SideNavSm>
-                        <RxHamburgerMenu className="block md:hidden" size={20} />
-                    </SideNavSm>
-                    <span className="cursor-pointer" onClick={changeTheme}>{theme === "dark" ? <MdLightMode size={22} /> : <MdOutlineDarkMode size={22} />}</span>
-                    <Avatar>
-                        <AvatarImage src="/man.svg" />
-                        <AvatarFallback></AvatarFallback>
-                    </Avatar>
-                </div>
-            </header>
-            {children}
-        </section>
+        <>
+            <SideNav />
+            <section className="flex flex-col w-screen md:w-[calc(100vw-70px)] md:relative left-[58px] md:px-8 px-3 md:min-h-[calc(100vh+10px)]">
+                <header className="h-[75px] items-center flex justify-between">
+                    <BreadcrumbsHelper route={route} />
+                    <div className="flex justify-center items-center gap-4">
+                        <SideNavSm>
+                            <RxHamburgerMenu className="block md:hidden" size={20} />
+                        </SideNavSm>
+                        <span className="cursor-pointer" onClick={changeTheme}>{theme === "dark" ? <MdLightMode size={22} /> : <MdOutlineDarkMode size={22} />}</span>
+                        <Avatar>
+                            <AvatarImage src="/man.svg" />
+                            <AvatarFallback></AvatarFallback>
+                        </Avatar>
+                    </div>
+                </header>
+                {children}
+            </section></>
 
     )
 }

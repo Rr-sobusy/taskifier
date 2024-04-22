@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 import { ThemeProvider } from "@/components/ThemeProvided";
-import { SideNav, SideNavData, SideNavTypes } from "@/components/layout/sidenav";
 
 import NextTopLoader from 'nextjs-toploader';
 
@@ -28,8 +27,6 @@ export default function RootLayout({
           defaultTheme="light"
           enableSystem
           disableTransitionOnChange>
-          <SideNav />
-
             <NextTopLoader
               color="#2563EB"
               showSpinner={false}
