@@ -29,12 +29,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange>
           <SideNav />
-          <main>
+
             <NextTopLoader
               color="#2563EB"
               showSpinner={false}
             />
-            {children}</main>
+            {children}
         </ThemeProvider>
       </body>
     </html>
