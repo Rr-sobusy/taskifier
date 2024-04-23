@@ -12,9 +12,7 @@ import { SideNav } from '../sidenav';
 
 import { MdOutlineDarkMode, MdLightMode } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
-
-
-
+import NextTopLoader from 'nextjs-toploader';
 
 const LayoutMain = ({ children }: { children: React.ReactNode }) => {
 
