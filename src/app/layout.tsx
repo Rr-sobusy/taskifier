@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 import { ThemeProvider } from "@/components/ThemeProvided";
-import NextTopLoader from 'nextjs-toploader';
+import TopLoaderProvider from "@/components/TopLoader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,21 +19,19 @@ export default function RootLayout({
 }>) {
   return (
 
-      <html suppressHydrationWarning lang="en">
-        <body className={` ${inter.className} flex flex-row`}>
-          <NextTopLoader
-            color="#2563EB"
-            showSpinner={false}
-          />
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            enableSystem
-            disableTransitionOnChange>
+    <html suppressHydrationWarning lang="en">
+      <body className={` ${inter.className} flex flex-row`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange>
+          <TopLoaderProvider>
             {children}
-          </ThemeProvider>
-        </body>
-      </html>
+          </TopLoaderProvider>
+        </ThemeProvider>
+      </body>
+    </html>
 
   );
 }

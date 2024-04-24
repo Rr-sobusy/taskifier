@@ -12,7 +12,6 @@ import { SideNav } from '../sidenav';
 
 import { MdOutlineDarkMode, MdLightMode } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
-import NextTopLoader from 'nextjs-toploader';
 
 const LayoutMain = ({ children }: { children: React.ReactNode }) => {
 
@@ -26,7 +25,7 @@ const LayoutMain = ({ children }: { children: React.ReactNode }) => {
     return (
         <>
             <SideNav />
-            <section className="flex flex-col w-screen md:w-[calc(100vw-70px)] md:relative left-[58px] md:px-8 px-3 md:min-h-[calc(100vh+10px)]">
+            <section className="flex flex-col z-10 w-screen md:w-[calc(100vw-70px)] md:relative left-[58px] md:px-8 px-3 md:min-h-[calc(100vh+10px)]">
                 <header className="h-[75px] items-center flex justify-between">
                     <BreadcrumbsHelper route={route} />
                     <div className="flex justify-center items-center gap-4">

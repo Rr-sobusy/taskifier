@@ -1,8 +1,14 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import React from 'react'
+import { SignIn } from '@/components/auth-component'
+import { auth } from '@/auth'
 
 type Props = {}
+const UserButton = async ()=>{
+  const session = await auth();
+  if (!session?.user) return <SignIn />
+}
 
 const LoginPage = (props: Props) => {
   return (
@@ -14,10 +20,11 @@ const LoginPage = (props: Props) => {
              <label>Password</label>
              <Input className="" type='text' />
              <Button>Login</Button>
-             <Button variant="outline">Register</Button>
+              <UserButton />
         </div>
     </div>
   )
 }
+
 
 export default LoginPage
