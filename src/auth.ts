@@ -14,7 +14,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         if(!isValid) {
           throw new Error("not authenticated")
         }
-        return credentials.username;
+        return  user
       }
     })
   ],
