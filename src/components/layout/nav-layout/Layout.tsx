@@ -6,7 +6,7 @@ import BreadcrumbsHelper from '../../ui helpers/breadcrumbs/BreadcrumbsHelper'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { usePathname } from 'next/navigation';
 
-import { SideNavSm } from '../sidenav';
+import { SideNavData, SideNavSm } from '../sidenav';
 
 import { SideNav } from '../sidenav';
 
@@ -14,7 +14,6 @@ import { MdOutlineDarkMode, MdLightMode } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 const LayoutMain = ({ children }: { children: React.ReactNode }) => {
-
     const { theme, setTheme } = useTheme()
     const pathName = usePathname()
     const route = pathName.split("/").filter(path => path)
