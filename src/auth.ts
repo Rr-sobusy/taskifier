@@ -9,18 +9,18 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     Credentials({
       credentials: {
-
+          username: {}
       },
       authorize: async (credentials) => {
-        // const user = { id: 1, name: "rexrandy" }
-        // if (user) {
-        //   throw new Error("not authenticated")
-        // }
-        // else {
-        //   return user
-        // }
+        const user = { id: 1, name: "rexrandy" }
+        if (user) {
+          throw new Error("not authenticated")
+        }
+        else {
+          return user
+        }
 
-        return credentials;
+  
       }
     })
   ],
