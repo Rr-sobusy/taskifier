@@ -2,8 +2,9 @@ import { signIn } from "@/auth"
 
 export async function POST(req:Request){
  const res =   await signIn("credentials", {
-        username: "rex",
-        password : "hernandezzzzz"
+        username: "rexpogi299",
+        password : "hernandezzzzz",
+        auth : "sample123"
     })
- 
+console.log(JSON.stringify({res}))
 }

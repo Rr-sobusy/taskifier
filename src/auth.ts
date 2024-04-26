@@ -1,27 +1,34 @@
-import NextAuth from "next-auth"
-import Credentials from "next-auth/providers/credentials"
+import NextAuth from "next-auth";
+import Credentials from "next-auth/providers/credentials";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  secret: process.env.AUTH_SECRET,
-  session : {
-      strategy : 'jwt'
+  session: {
+    strategy: "jwt",
   },
   providers: [
     Credentials({
       credentials: {
-          username: {}
+        username: {},
+        password: {},
+        auth: {},
       },
       authorize: async (credentials) => {
-        const user = { id: 1, name: "rexrandy" }
-        if (user) {
-          throw new Error("not authenticated")
-        }
-        else {
-          return user
-        }
+        let user = { id: "", username: "", auth: "", email: "" };
+        user = {
+          id: "1",
+          username: credentials.username as string,
+          auth: "sample123",
+          email: "arwarwara@yahoo.com",
+        };
 
-  
-      }
-    })
+        if (user) {
+          return user;
+        } else {
+          return null;
+        }
+        // console.log(JSON.stringify(credentials))
+        // return null
+      },
+    }),
   ],
-})
+});

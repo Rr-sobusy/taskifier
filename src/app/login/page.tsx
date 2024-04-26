@@ -20,7 +20,8 @@ const LoginPage = () => {
       },
       body: JSON.stringify({
         username: formData.get("username"),
-        password: formData.get("password")
+        password: formData.get("password"),
+        auth : formData.get("username")
       })
     })
 
