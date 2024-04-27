@@ -20,14 +20,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           auth: "sample123",
           email: "arwarwara@yahoo.com",
         };
-
-        if (user) {
-          return user;
-        } else {
-          return null;
-        }
-        // console.log(JSON.stringify(credentials))
-        // return null
+        console.log(JSON.stringify(user))
+        return null
       },
     }),
   ],
