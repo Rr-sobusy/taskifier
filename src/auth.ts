@@ -8,20 +8,20 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     Credentials({
       credentials: {
-        username: {},
+        user: {},
         password: {},
         auth: {},
       },
       authorize: async (credentials) => {
-        let user = { id: "", username: "", auth: "", email: "" };
+        let user = { id: "", name: "", auth: "", email: "" };
         user = {
           id: "1",
-          username: credentials.username as string,
+          name:"rex randy",
           auth: "sample123",
           email: "arwarwara@yahoo.com",
         };
-        console.log(JSON.stringify(user))
-        return null
+
+        return user;
       },
     }),
   ],
