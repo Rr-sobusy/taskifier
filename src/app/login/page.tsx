@@ -19,7 +19,7 @@ const LoginPage = () => {
         "content-type": "application/json"
       },
       body: JSON.stringify({
-        username: formData.get("username"),
+        name: formData.get("name"),
         password: formData.get("password"),
         auth : formData.get("username")
       })
@@ -32,7 +32,7 @@ const LoginPage = () => {
       <form onSubmit={submitHandler} className="min-w-[400px] py-10 rounded-lg px-5 bg-secondary flex gap-3 flex-col justify-center">
         <h3 className="font-extrabold text-lg text-center">Login</h3>
         <label>UserName</label>
-        <Input name='username' className="" type='text' />
+        <Input name='name' className="" type='text' />
         <label>Password</label>
         <Input name='password' className="" type='text' />
         <Button type='submit'>Login</Button>

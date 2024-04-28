@@ -8,7 +8,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     Credentials({
       credentials: {
-        user: {},
+        name: {},
         password: {},
         auth: {},
       },
@@ -16,7 +16,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         let user = { id: "", name: "", auth: "", email: "" };
         user = {
           id: "1",
-          name:"rex randy",
+          name: await credentials.name as string,
           auth: "sample123",
           email: "arwarwara@yahoo.com",
         };
