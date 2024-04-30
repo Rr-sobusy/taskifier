@@ -17,7 +17,7 @@ const layout = async(props: Props) => {
       </title>
     </Head>
     <LayoutMain>
-      <p>this is dashobard</p>
+      <p>{session?.user?.id}</p>
     </LayoutMain>
     </>
   )

@@ -15,12 +15,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       authorize: async (credentials) => {
         let user = { id: "", name: "", auth: "", email: "" };
         user = {
-          id: "1",
+          id: "",
           name: await credentials.name as string,
           auth: "sample123",
           email: "arwarwara@yahoo.com",
         };
-
         return user;
       },
     }),
