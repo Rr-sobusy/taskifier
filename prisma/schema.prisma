@@ -15,7 +15,7 @@ datasource db {
 
 model Users {
   userId        Int     @id @default(autoincrement())
-  userName      String
+  userName      String  @unique
   password      String
   tasks         Tasks[]
 }

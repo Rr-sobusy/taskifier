@@ -17,7 +17,7 @@ const layout = async(props: Props) => {
       </title>
     </Head>
     <LayoutMain>
-      <p>{session?.user?.id}</p>
+      <p>{JSON.stringify(session)}</p>
     </LayoutMain>
     </>
   )
