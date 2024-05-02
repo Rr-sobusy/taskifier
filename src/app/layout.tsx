@@ -18,7 +18,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-
     <html suppressHydrationWarning lang="en">
       <body className={` ${inter.className} flex flex-row`}>
         <ThemeProvider
@@ -27,11 +26,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange>
           <TopLoaderProvider>
-            {children}
+              {children}
           </TopLoaderProvider>
         </ThemeProvider>
       </body>
     </html>
-
   );
 }
