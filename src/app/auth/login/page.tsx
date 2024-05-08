@@ -32,22 +32,22 @@ const LoginPage = () => {
 
   return (
     <form onSubmit={submitHandler} className="w-screen h-screen flex justify-center items-center">
-      <Card className='lg:w-1/3 md:w-3/4 flex flex-col gap-5 w-full h-full md:h-[550px] px-6 py-8 md:py-8 rounded-xl'>
+      <Card className='lg:w-1/3 md:w-3/4 flex flex-col shadow-md gap-7 w-full h-full md:h-[550px] px-6 py-8 md:py-8 rounded-xl'>
         <div className='flex flex-col items-center'>
           <h2 className='scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-3xl'>Task<span className='text-primary tracking-wide'>ifier</span></h2>
-          <h6 className='font-sans text-gray-600 font-semibold tracking-wider text-[.8rem]'>Catch up with your favorite anime and manga series!</h6>
+          <h6 className='font-sans text-gray-600 font-semibold tracking-wider text-[.8rem]'>Delivering the tasks smooth as slick!</h6>
         </div>
 
         {/* Input fields */}
         <div className='flex flex-col md:gap-3 gap-4 mt-9 md:mt-0'>
           <div className='flex flex-col gap-1'>
             <label className='text-slate-700 md:text-base text-xl font-semibold tracking-tight scroll-m-20'>Username</label>
-            <Input name='name' className='py-6 md:py-6 text-sm text-slate-700' placeholder='Enter your username or email' />
+            <Input name='name' className='py-6 md:py-3 text-sm text-slate-700' placeholder='Enter your username or email' />
           </div>
 
           <div className='flex flex-col gap-1'>
             <label className='text-slate-700 md:text-base text-xl font-semibold tracking-tight scroll-m-20'>Password</label>
-            <Input name='password' className='py-6 md:py-6 text-sm text-slate-700' placeholder='Enter your password' />
+            <Input name='password' className='py-6 md:py-3 text-sm text-slate-700' placeholder='Enter your password' />
           </div>
 
         </div>
@@ -56,7 +56,7 @@ const LoginPage = () => {
           <Button variant="outline" type='submit' className='py-6 w-full'>Register</Button>
         </div>
 
-          <h5 className='font-sans text-primary font-semibold text-sm grid grid-cols-3 gap-2 items-center text-center'>Or continue with</h5>
+          <h5 className='font-sans font-semibold text-sm text-center'>Or continue with</h5>
 
         <div className='flex gap-2 mt-3 md:mt-0'>
           <Button className='w-full font-semibold flex gap-2' variant="outline">
