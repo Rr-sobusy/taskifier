@@ -1,6 +1,7 @@
 "use client"
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import Link from 'next/link'
 
 import React, { FormEvent } from 'react'
 import {
@@ -9,6 +10,8 @@ import {
 
 
 const LoginPage = () => {
+
+
 
   const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
 
@@ -27,7 +30,6 @@ const LoginPage = () => {
         auth: formData.get("username")
       })
     })
-
   }
 
   return (
@@ -53,10 +55,10 @@ const LoginPage = () => {
         </div>
         <div className='flex items-center flex-col gap-3'>
           <Button type='submit' className='py-6 w-full'>Login</Button>
-          <Button variant="outline" type='submit' className='py-6 w-full'>Register</Button>
+          <Link className="w-full" href="/auth/register"> <Button variant="outline" type='submit' className='py-6 w-full'>Register</Button></Link>
         </div>
 
-          <h5 className='font-sans font-semibold text-sm text-center'>Or continue with</h5>
+        <h5 className='font-sans font-semibold text-sm text-center'>Or continue with</h5>
 
         <div className='flex gap-2 mt-3 md:mt-0'>
           <Button className='w-full font-semibold flex gap-2' variant="outline">

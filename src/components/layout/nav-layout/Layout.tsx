@@ -3,14 +3,20 @@
 import React from 'react'
 import { useTheme } from 'next-themes';
 import BreadcrumbsHelper from '../../ui helpers/breadcrumbs/BreadcrumbsHelper'
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+} from "@/components/ui/popover"
 import { usePathname } from 'next/navigation';
 
-import { SideNavData, SideNavSm } from '../sidenav';
+import { SideNavSm } from '../sidenav';
 
 import { SideNav } from '../sidenav';
 
-import { MdOutlineDarkMode, MdLightMode, MdOutlineKeyboardArrowDown  } from "react-icons/md";
+import { MdOutlineDarkMode, MdLightMode, MdOutlineKeyboardArrowDown, MdKeyboardArrowDown } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 const LayoutMain = ({ children }: { children: React.ReactNode }) => {
@@ -32,10 +38,13 @@ const LayoutMain = ({ children }: { children: React.ReactNode }) => {
                             <RxHamburgerMenu className="block md:hidden" size={20} />
                         </SideNavSm>
                         <span className="cursor-pointer" onClick={changeTheme}>{theme === "dark" ? <MdLightMode size={22} /> : <MdOutlineDarkMode size={22} />}</span>
-                        <Avatar>
-                            <AvatarImage src="/man.svg" />
-                            <AvatarFallback></AvatarFallback>
-                        </Avatar>
+                        <div className='flex items-center gap-1'>
+                            <Avatar>
+                                <AvatarImage src="/man.svg" />
+                                <AvatarFallback></AvatarFallback>
+                            </Avatar>
+                            <MdKeyboardArrowDown className="cursor-pointer" size={19} />
+                        </div>
                     </div>
                 </header>
                 {children}
