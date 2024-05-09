@@ -11,9 +11,11 @@ import { useForm } from "react-hook-form"
 import { UserSchema } from '@/types/UserSchema'
 import { UserType } from '@/types/UserSchema'
 import { zodResolver } from "@hookform/resolvers/zod"
+import { redirect } from 'next/navigation'
 
 
-const LoginPage = () => {
+
+const LoginPage = async () => {
 
     const { handleSubmit, register } = useForm<UserType>({ resolver: zodResolver(UserSchema) })
 
