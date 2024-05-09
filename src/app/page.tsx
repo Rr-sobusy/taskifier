@@ -1,11 +1,12 @@
-import Image from "next/image";
 
-import LayoutMain from "@/components/layout/nav-layout/Layout";
+import React from "react";
+import { redirect } from "next/navigation";
 
 export default function Home() {
+
+  // Redirect to /dashboard
+  redirect("/dashboard")
   return (
-    <LayoutMain>
-      <h2>rex</h2>
-    </LayoutMain>
+    <></>
   );
 }
