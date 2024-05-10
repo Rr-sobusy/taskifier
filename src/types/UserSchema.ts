@@ -10,6 +10,7 @@ export type UserType = {
 export const UserSchema: ZodType<UserType> = z.object({
     userName: z.string().min(4),
     email: z.string().email(),
-    password: z.string().min(8)
+    password: z.string().min(8),
+    repeat:z.string()
 })
 
