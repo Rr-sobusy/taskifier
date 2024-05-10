@@ -16,7 +16,9 @@ const LoginPage = () => {
 
   const signInHandler = async () => {
     "use server"
-    await signIn("google")
+    await signIn("google", {
+      redirectTo: "/dashboard"
+    })
   }
 
 
