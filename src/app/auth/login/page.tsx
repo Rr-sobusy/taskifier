@@ -8,7 +8,7 @@ import {
   Card,
 } from "@/components/ui/card"
 
-import { signIn } from '@/auth'
+import { signIn, signOut } from '@/auth'
 
 
 const LoginPage = () => {
@@ -19,6 +19,7 @@ const LoginPage = () => {
     await signIn("google", {
       redirectTo: "/dashboard"
     })
+    
   }
 
 
