@@ -5,18 +5,13 @@ import { useTheme } from 'next-themes';
 import BreadcrumbsHelper from '../../ui helpers/breadcrumbs/BreadcrumbsHelper'
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-} from "@/components/ui/popover"
 import { usePathname } from 'next/navigation';
 
 import { SideNavSm } from '../sidenav';
 
 import { SideNav } from '../sidenav';
 
-import { MdOutlineDarkMode, MdLightMode, MdOutlineKeyboardArrowDown, MdKeyboardArrowDown } from "react-icons/md";
+import { MdOutlineDarkMode, MdLightMode, MdKeyboardArrowDown } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 const LayoutMain = ({ children }: { children: React.ReactNode }) => {

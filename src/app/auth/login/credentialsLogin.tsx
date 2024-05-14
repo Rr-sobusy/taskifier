@@ -17,18 +17,18 @@ const CredentialsLogin = (props: Props) => {
         <div className='flex flex-col md:gap-3 gap-4 mt-9 md:mt-0'>
           <div className='flex flex-col gap-1'>
             <label className='text-slate-700 md:text-sm text-xl font-semibold tracking-tight scroll-m-20'>Username</label>
-            <Input name='name' className='py-6 md:py-3 text-xsm text-slate-700' placeholder='Enter your username or email' />
+            <Input name='name' className='text-xsm text-slate-700' placeholder='Enter your username or email' />
           </div>
 
           <div className='flex flex-col gap-1'>
             <label className='text-slate-700 md:text-sm text-xl font-semibold tracking-tight scroll-m-20'>Password</label>
-            <Input name='password' className='py-6 md:py-3 text-xsm text-slate-700' placeholder='Enter your password' />
+            <Input name='password' className='text-xsm text-slate-700' placeholder='Enter your password' />
           </div>
 
         </div>
         <div className='flex items-center flex-col gap-3'>
-          <Button type='submit' className='py-6 w-full'>Login</Button>
-          <Link className="w-full" href="/auth/register"> <Button variant="outline" type='submit' className='py-6 w-full'>Register</Button></Link>
+          <Button type='submit' className='w-full'>Login</Button>
+          <Link className="w-full" href="/auth/register"> <Button variant="outline" type='submit' className='w-full'>Register</Button></Link>
         </div>
    </form>
   )
