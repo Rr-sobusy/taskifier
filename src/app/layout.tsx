@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={` ${inter.className} flex flex-row`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange>
           <TopLoaderProvider>
