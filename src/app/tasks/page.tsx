@@ -35,7 +35,7 @@ const Page = async (props: Props) => {
       {/* <div className="mt-5">
         <DataTable columns={columns} data={data} />
       </div> */}
-      <div className="flex flex-wrap gap-2 border border-black">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 mt-7">
           <TaskCard />
           <TaskCard />
           <TaskCard />

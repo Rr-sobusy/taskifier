@@ -11,7 +11,7 @@ type TaskCarkProps = {
 
 const TaskCard = (props:TaskCarkProps) => {
     return (
-        <Card className={cn("w-full md:w-1/2 lg:w-1/3 xl:w-1/4")}>
+        <Card className={cn("bg-accent dark:bg-accent")}>
             <CardHeader>
                 rex
             </CardHeader>
