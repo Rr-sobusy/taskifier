@@ -6,19 +6,19 @@ import { auth } from '@/auth'
 
 type Props = {}
 
-const layout = async(props: Props) => {
+const layout = async (props: Props) => {
   const session = await auth();
   console.log(JSON.stringify(session))
   return (
     <>
-    <Head>
-      <title>
-        Taskifier
-      </title>
-    </Head>
-    <LayoutMain>
-      <p>{JSON.stringify(session)}</p>
-    </LayoutMain>
+      <Head>
+        <title>
+          Taskifier
+        </title>
+      </Head>
+      <LayoutMain>
+        <p>{JSON.stringify(session)}</p>
+      </LayoutMain>
     </>
   )
 }

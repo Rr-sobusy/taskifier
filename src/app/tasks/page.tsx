@@ -4,6 +4,7 @@ import { IoMdAdd } from "react-icons/io";
 import { Button } from '@/components/ui/button'
 import Link from 'next/link';
 import { columns, Payment } from './columns'
+import TaskCard from './tasks-card';
 
 // react-icons
 import { CiFilter } from "react-icons/ci";
@@ -31,8 +32,13 @@ const Page = async (props: Props) => {
           <Button size="sm" className="rounded-3xl flex gap-1 h-8 px-4 text-[.75rem]"><span><IoMdAdd size={20} /></span><span className="hidden md:block rounded-full">Add New</span></Button>
         </Link>
       </div>
-      <div className="mt-5">
+      {/* <div className="mt-5">
         <DataTable columns={columns} data={data} />
+      </div> */}
+      <div className="flex flex-wrap gap-2 border border-black">
+          <TaskCard />
+          <TaskCard />
+          <TaskCard />
       </div>
     </LayoutMain>
   )
