@@ -62,7 +62,7 @@ const SideNav = () => {
                         return (
                             <Link className={`w-10 h-10  flex justify-center items-center rounded-xl ${isActive}`} key={index} href={content.to}>
                                 <TooltipHelper title={content.title}>
-                                    <Icon size={14} />
+                                    <Icon size={16} />
                                 </TooltipHelper>
                             </Link>
                         )

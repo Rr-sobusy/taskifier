@@ -2,6 +2,9 @@ import { RxDashboard } from "react-icons/rx";
 import { BsListTask } from "react-icons/bs";
 import { MdManageHistory } from "react-icons/md";
 
+import { LayoutDashboard } from "lucide-react";
+import { ListTodo } from "lucide-react";
+
 export type SideNavTypes = {
     title: string
     to: string
@@ -11,11 +14,11 @@ export type SideNavTypes = {
 export const SideNavData: SideNavTypes[] = [{
     title: "Dashboard",
     to: "/dashboard",
-    icon: RxDashboard,
+    icon: LayoutDashboard,
 }, {
     title: "Tasks",
     to: "/tasks",
-    icon: BsListTask
+    icon: ListTodo
 }, {
     title: "Management",
     to: "/management",
