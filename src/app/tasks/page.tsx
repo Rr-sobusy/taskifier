@@ -44,6 +44,8 @@ const Page = async (props: Props) => {
         <TaskCard />
         <TaskCard />
         <TaskCard />
+        <TaskCard />
+        <TaskCard />
       </div>
     </LayoutMain>
   )
