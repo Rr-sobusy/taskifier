@@ -3,16 +3,13 @@
 import React from 'react'
 import { useTheme } from 'next-themes';
 import BreadcrumbsHelper from '../../ui helpers/breadcrumbs/BreadcrumbsHelper'
-
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { usePathname } from 'next/navigation';
 
 import { SideNavSm } from '../sidenav';
-
 import { SideNav } from '../sidenav';
 
-import { MdOutlineDarkMode, MdLightMode, MdKeyboardArrowDown } from "react-icons/md";
-import { RxHamburgerMenu } from "react-icons/rx";
+import { Menu, Moon, Sun } from 'lucide-react';
 
 const LayoutMain = ({ children }: { children: React.ReactNode }) => {
     const { theme, setTheme } = useTheme()
@@ -30,15 +27,14 @@ const LayoutMain = ({ children }: { children: React.ReactNode }) => {
                     <BreadcrumbsHelper route={route} />
                     <div className="flex justify-center items-center gap-4">
                         <SideNavSm>
-                            <RxHamburgerMenu className="block md:hidden" size={20} />
+                            <Menu className="block md:hidden" size={20} />
                         </SideNavSm>
-                        <span className="cursor-pointer" onClick={changeTheme}>{theme === "dark" ? <MdLightMode size={22} /> : <MdOutlineDarkMode size={22} />}</span>
+                        <span className="cursor-pointer" onClick={changeTheme}>{theme === "dark" ? <Sun size={22} /> : <Moon size={22} />}</span>
                         <div className='flex items-center gap-1'>
                             <Avatar>
                                 <AvatarImage src="/man.svg" />
                                 <AvatarFallback></AvatarFallback>
                             </Avatar>
-                            <MdKeyboardArrowDown className="cursor-pointer" size={19} />
                         </div>
                     </div>
                 </header>

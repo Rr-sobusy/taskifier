@@ -16,7 +16,7 @@ type TaskCarkProps = {
 
 const TaskCard = (props: TaskCarkProps) => {
     return (
-        <Card className={cn("shadow-md relative cursor-pointer")}>
+        <Card className={cn("shadow-sm relative")}>
             <CardHeader className="flex flex-row items-center gap-2 pt-6 pb-3">
                 <Badge className="h-14 w-14 flex bg-[#039856] justify-center items-center shadow-sm rounded-lg" variant="default">
                     <FilePenLine />

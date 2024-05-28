@@ -1,14 +1,15 @@
 import React from 'react'
 import { Button } from '@/components/ui/button'
-import { signIn } from '@/auth'
+import { signIn, signOut } from '@/auth'
 
 const GoogleLogin = () => {
 
     const formAction = async () => {
         "use server"
-        await signIn("google", {
-            redirectTo: "/dashboard"
-        })
+        // await signIn("google", {
+        //     redirectTo: "/dashboard"
+        // })
+        await signOut();
     }
     return (
         <form className='w-full' action={formAction}>
