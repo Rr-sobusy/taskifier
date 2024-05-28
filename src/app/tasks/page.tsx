@@ -34,13 +34,11 @@ const Page = async (props: Props) => {
         <AddTask>
           <Button size="sm" className="rounded-3xl flex gap-1 h-8 px-4 text-[.75rem]"><span><IoMdAdd size={20} /></span><span className="hidden md:block rounded-full">Add New</span></Button>
         </AddTask>
-
-
       </div>
       {/* <div className="mt-5">
         <DataTable columns={columns} data={data} />
       </div> */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-7">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-7">
         <TaskCard />
         <TaskCard />
         <TaskCard />

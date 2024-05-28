@@ -1,6 +1,6 @@
 import React from 'react'
-import { CardHeader, CardContent, CardDescription, Card, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
+import { CardHeader, CardContent, Card, CardTitle } from '@/components/ui/card'
+import TaskOption from './task-option'
 
 import { cn } from '@/lib/utils'
 import { Badge } from '@/components/ui/badge'
@@ -16,7 +16,7 @@ type TaskCarkProps = {
 
 const TaskCard = (props: TaskCarkProps) => {
     return (
-        <Card className={cn("shadow-md relative")}>
+        <Card className={cn("shadow-md relative cursor-pointer")}>
             <CardHeader className="flex flex-row items-center gap-2 pt-6 pb-3">
                 <Badge className="h-14 w-14 flex bg-[#039856] justify-center items-center shadow-sm rounded-lg" variant="default">
                     <FilePenLine />
@@ -33,9 +33,11 @@ const TaskCard = (props: TaskCarkProps) => {
                             <p>rex</p>
                         </Badge>
                     </div>
-                    <CardTitle className="text-[.925rem] tracking-normal font-extrabold leading-none">Craft a blog about the evolution of UI/UX</CardTitle>
+                    <CardTitle className="text-[.925rem] tracking-normal font-extrabold leading-none">Craft a blog about the evolution of UI/UX.</CardTitle>
                 </div>
-                <EllipsisVertical className="absolute right-5 top-7 cursor-pointer" size={15} />
+                <TaskOption>
+                    <EllipsisVertical className="absolute right-5 top-7 cursor-pointer" size={15} />
+                </TaskOption>
             </CardHeader>
             <div className="px-6 flex gap-2">
                 <div className="flex items-center gap-1">
@@ -56,7 +58,7 @@ const TaskCard = (props: TaskCarkProps) => {
                     <p className="text-[.75rem] font-semibold">90%</p>
                 </div>
                 <div className="flex flex-row items-center gap-2">
-                    <p className="text-[.75rem] font-semibold">1/4 tasks completed</p>
+                    <p className="text-[.75rem] font-semibold">1/4 sub-tasks completed</p>
                 </div>
                 <div className="flex flex-row items-center gap-2">
                     <p className="text-[.75rem] dark:text-slate-200 text-slate-600">Last updated: </p>

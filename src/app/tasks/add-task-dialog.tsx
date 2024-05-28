@@ -10,14 +10,14 @@ import {
 
 
 type AddTaskType = {
-    children: React.ReactNode
+  children: React.ReactNode
 }
 
 const AddTask = ({children}:AddTaskType) => {
   return (
     <Dialog>
       <DialogTrigger>{children}</DialogTrigger>
-      <DialogContent>
+      <DialogContent className="absolute left-1/2 max-w-[90%] md:max-w-3xl">
         <DialogHeader>
           <DialogTitle>Are you absolutely sure?</DialogTitle>
           <DialogDescription>
