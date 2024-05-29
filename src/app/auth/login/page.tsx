@@ -1,8 +1,5 @@
 
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import Link from 'next/link'
-
 import React, { FormEvent } from 'react'
 import {
   Card,
@@ -10,14 +7,23 @@ import {
 
 import GoogleLogin from './googleLogin'
 import CredentialsLogin from './credentialsLogin'
+import { redirect } from 'next/navigation'
+
+import { auth } from '@/auth'
 
 
-const LoginPage = () => {
+const LoginPage = async () => {
+  const session = await auth();
 
+
+  //redirect to dashboard if already authenticated
+  if (session?.user) {
+    redirect("/dashboard")
+  }
   return (
     <div className="w-screen h-screen flex justify-center items-center">
       <Card className='lg:w-1/3 md:w-3/4 flex flex-col shadow-md gap-7 w-full h-full md:h-[550px] px-6 py-8 md:py-8 rounded-xl'>
-       <CredentialsLogin />
+        <CredentialsLogin />
         <h5 className='font-sans font-semibold text-sm text-center'>Or continue with</h5>
         <div className='flex gap-2 mt-3 md:mt-0'>
           <Button className='w-full font-semibold flex gap-2' variant="outline">

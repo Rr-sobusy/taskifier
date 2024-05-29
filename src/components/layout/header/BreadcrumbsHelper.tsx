@@ -1,4 +1,3 @@
-
 import React from 'react'
 import {
     Breadcrumb,
@@ -9,10 +8,7 @@ import {
 
 import Link from 'next/link'
 
-
-
 const BreadcrumbsHelper = ({ route }: { route: string[] }) => {
-
     return (
         <Breadcrumb>
             <BreadcrumbList>

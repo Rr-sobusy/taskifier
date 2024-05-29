@@ -1,10 +1,11 @@
 import { LayoutDashboard } from "lucide-react";
-import { ListTodo } from "lucide-react";
+import { ListTodo, LucideIcon } from "lucide-react";
+
 
 export type SideNavTypes = {
     title: string
     to: string
-    icon: any
+    icon: LucideIcon
 }
 
 export const SideNavData: SideNavTypes[] = [{

@@ -1,6 +1,5 @@
 import React from 'react'
 import { CardHeader, CardContent, Card, CardTitle } from '@/components/ui/card'
-import TaskOption from './task-option'
 
 import { cn } from '@/lib/utils'
 import { Badge } from '@/components/ui/badge'
@@ -16,7 +15,7 @@ type TaskCarkProps = {
 
 const TaskCard = (props: TaskCarkProps) => {
     return (
-        <Card className={cn("shadow-sm relative")}>
+        <Card className={cn("shadow-sm relative cursor-pointer")}>
             <CardHeader className="flex flex-row items-center gap-2 pt-6 pb-3">
                 <Badge className="h-14 w-14 flex bg-[#039856] justify-center items-center shadow-sm rounded-lg" variant="default">
                     <FilePenLine />
@@ -35,9 +34,7 @@ const TaskCard = (props: TaskCarkProps) => {
                     </div>
                     <CardTitle className="text-[.925rem] tracking-normal font-extrabold leading-none">Craft a blog about the evolution of UI/UX.</CardTitle>
                 </div>
-                <TaskOption>
                     <EllipsisVertical className="absolute right-5 top-7 cursor-pointer" size={15} />
-                </TaskOption>
             </CardHeader>
             <div className="px-6 flex gap-2">
                 <div className="flex items-center gap-1">
