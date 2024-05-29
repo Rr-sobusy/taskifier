@@ -14,7 +14,6 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { redirect } from 'next/navigation'
 
 
-
 const LoginPage = async () => {
 
     const { handleSubmit, register, watch } = useForm<UserType>()
