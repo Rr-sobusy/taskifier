@@ -117,7 +117,13 @@ model Authenticator {
   credentialDeviceType String
   credentialBackedUp   Boolean
   transports           String?
- 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// 
+
+model Tasks {
+  id                   BigInt @id @default(autoincrement())
+  taskTitle            String
 }
 
