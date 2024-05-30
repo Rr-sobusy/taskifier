@@ -17,7 +17,7 @@ const AddTask = ({children}:AddTaskType) => {
   return (
     <Dialog>
       <DialogTrigger>{children}</DialogTrigger>
-      <DialogContent className="absolute left-1/2 max-w-[90%] md:max-w-3xl">
+      <DialogContent className="max-w-[90%] md:max-w-3xl">
         <DialogHeader>
           <DialogTitle>Are you absolutely sure?</DialogTitle>
           <DialogDescription>

@@ -1,24 +1,17 @@
+"use client"
 import React from 'react'
 import LayoutMain from '@/components/layout/nav-layout/Layout'
 import { Button } from '@/components/ui/button'
-import Link from 'next/link';
-import { columns, Payment } from './columns'
 import TaskCard from './tasks-card';
-
 import AddTask from './add-task-dialog';
 
-// react-icons
 import { ListFilter, Plus } from 'lucide-react';
-import { DataTable } from './data-table';
+
 
 type Props = {}
 
-async function getData(): Promise<Payment[]> {
-  const data = await fetch(`${process.env.API_URL}/tasks/api`).then(res => res.json());
-  return data;
-}
 const Page = async (props: Props) => {
-  const data = await getData();
+
   return (
     <LayoutMain>
       <div className="flex justify-between">
@@ -38,6 +31,10 @@ const Page = async (props: Props) => {
         <DataTable columns={columns} data={data} />
       </div> */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-7">
+        <TaskCard />
+        <TaskCard />
+        <TaskCard />
+        <TaskCard />
         <TaskCard />
         <TaskCard />
         <TaskCard />

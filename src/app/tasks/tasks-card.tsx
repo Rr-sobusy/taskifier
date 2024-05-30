@@ -34,7 +34,6 @@ const TaskCard = (props: TaskCarkProps) => {
                     </div>
                     <CardTitle className="text-[.925rem] tracking-normal font-extrabold leading-none">Craft a blog about the evolution of UI/UX.</CardTitle>
                 </div>
-                    <EllipsisVertical className="absolute right-5 top-7 cursor-pointer" size={15} />
             </CardHeader>
             <div className="px-6 flex gap-2">
                 <div className="flex items-center gap-1">

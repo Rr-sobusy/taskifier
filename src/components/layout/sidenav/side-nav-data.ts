@@ -1,5 +1,4 @@
-import { LayoutDashboard } from "lucide-react";
-import { ListTodo, LucideIcon } from "lucide-react";
+import { ListTodo, type LucideIcon, BarChart3 } from "lucide-react";
 
 
 export type SideNavTypes = {
@@ -11,7 +10,7 @@ export type SideNavTypes = {
 export const SideNavData: SideNavTypes[] = [{
     title: "Dashboard",
     to: "/dashboard",
-    icon: LayoutDashboard,
+    icon: BarChart3,
 }, {
     title: "Tasks",
     to: "/tasks",
