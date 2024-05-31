@@ -20,13 +20,13 @@ const Header = () => {
   return (
     <header className="h-[75px] items-center flex justify-between">
                     <BreadcrumbsHelper route={route} />
-                    <div className="flex justify-center items-center gap-4">
+                    <div className="flex justify-center items-center gap-3">
                         <SideNavSm>
                             <Menu className="block md:hidden" size={20} />
                         </SideNavSm>
                         <span className="cursor-pointer" onClick={changeTheme}>{theme === "dark" ? <Sun size={22} /> : <Moon size={22} />}</span>
-                        <div className='flex items-center gap-1'>
-                            <Avatar>
+                        <div className='flex items-center'>
+                            <Avatar className="w-7 h-7">
                                 <AvatarImage src="/man.svg" />
                                 <AvatarFallback></AvatarFallback>
                             </Avatar>

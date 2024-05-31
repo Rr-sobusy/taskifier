@@ -125,5 +125,11 @@ model Authenticator {
 model Tasks {
   id                   BigInt @id @default(autoincrement())
   taskTitle            String
+  createdAt            DateTime  @default(now())
+}
+
+model Tags {
+  taskId              Int
+  
 }
 

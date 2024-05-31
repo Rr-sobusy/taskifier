@@ -30,7 +30,7 @@ const Page = async (props: Props) => {
       {/* <div className="mt-5">
         <DataTable columns={columns} data={data} />
       </div> */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-7">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 my-7 ">
         <TaskCard />
         <TaskCard />
         <TaskCard />
