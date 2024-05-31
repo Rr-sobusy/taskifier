@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react'
 import {
   Dialog,
@@ -28,7 +30,7 @@ import {
 } from "@/components/ui/popover"
 import { format } from "date-fns"
 
-import { ClipboardList, LucideIcon, Airplay, FilePenLine } from 'lucide-react'
+import { ClipboardList, LucideIcon, Airplay, FilePenLine, CalendarDays } from 'lucide-react'
 
 type AddTaskType = {
   children: React.ReactNode
@@ -107,6 +109,7 @@ const AddTask = ({ children }: AddTaskType) => {
               <Button
                 variant={"outline"}
               >
+                <CalendarDays className="mr-2 h-4 w-4" />
                 {date ? format(date, "PPP") : <span>Pick a date</span>}
               </Button>
             </PopoverTrigger>
@@ -119,6 +122,8 @@ const AddTask = ({ children }: AddTaskType) => {
               />
             </PopoverContent>
           </Popover>
+          <Label className="font-semibold">Target Completion Date</Label>
+         
           <div className="flex gap-2">
             <div className="flex flex-1 flex-col gap-2">
               <Label className="font-semibold">Task Icon</Label>
@@ -133,7 +138,7 @@ const AddTask = ({ children }: AddTaskType) => {
           <Input type="text" />
         </div>
         <DialogFooter>
-          <Button className="w-full bg-foreground hover:bg-accent-foreground">Create Task</Button>
+          <Button className="w-full bg-primary hover:bg-accent-foreground">Create Task</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

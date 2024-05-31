@@ -4,7 +4,7 @@ import { CardHeader, CardContent, Card, CardTitle } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 import { Badge } from '@/components/ui/badge'
 
-import { FilePenLine, CalendarCheck2, EllipsisVertical } from 'lucide-react'
+import { FilePenLine, CalendarCheck2 } from 'lucide-react'
 import { Separator } from '@/components/ui/separator'
 import { Progress } from '@/components/ui/progress'
 
@@ -17,9 +17,9 @@ const TaskCard = (props: TaskCarkProps) => {
     return (
         <Card className={cn("shadow-sm relative cursor-pointer")}>
             <CardHeader className="flex flex-row items-center gap-2 pt-6 pb-3">
-                <Badge className="h-14 w-14 flex bg-[#039856] justify-center items-center shadow-sm rounded-lg" variant="default">
+                <div className="h-14 w-14 flex bg-[#039856] text-background justify-center items-center shadow-sm rounded-lg">
                     <FilePenLine />
-                </Badge>
+                </div>
                 <div className="flex flex-col items-baseline gap-2">
                     <div className="flex item-center gap-1">
                         <Badge className="rounded-sm bg-accent" variant="outline">
