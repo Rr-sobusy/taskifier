@@ -92,7 +92,7 @@ const AddTask = ({ children }: AddTaskType) => {
   return (
     <Dialog>
       <DialogTrigger>{children}</DialogTrigger>
-      <DialogContent className="max-w-[90%] md:max-w-[30rem] rounded-none">
+      <DialogContent className="max-w-[90%] md:max-w-[26rem] rounded-none">
         <DialogHeader>
           <DialogTitle className="font-extrabold tracking-tighter text-center">Add New Task</DialogTitle>
         </DialogHeader>
@@ -133,7 +133,7 @@ const AddTask = ({ children }: AddTaskType) => {
           <Input type="text" />
         </div>
         <DialogFooter>
-          <Button className="w-full">Create Task</Button>
+          <Button className="w-full bg-foreground hover:bg-accent-foreground">Create Task</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
