@@ -4,7 +4,7 @@ import { CardHeader, CardContent, Card, CardTitle } from '@/components/ui/card'
 import { cn } from '@/lib/utils'
 import { Badge } from '@/components/ui/badge'
 
-import { FilePenLine, CalendarCheck2 } from 'lucide-react'
+import { FilePenLine, CalendarCheck2, CalendarClock } from 'lucide-react'
 import { Separator } from '@/components/ui/separator'
 import { Progress } from '@/components/ui/progress'
 
@@ -42,7 +42,7 @@ const TaskCard = (props: TaskCarkProps) => {
                     <p className="text-[.75rem] font-semibold dark:text-slate-300 text-slate-800">27 May</p>
                 </div>
                 <div className="flex items-center gap-1">
-                    <CalendarCheck2 className="dark:text-slate-200 text-slate-600" size={14} />
+                    <CalendarClock className="dark:text-slate-200 text-slate-600" size={14} />
                     <p className="text-[.75rem] dark:text-slate-200 text-slate-600">Deadline:</p>
                     <p className="text-[.75rem] font-semibold dark:text-slate-300 text-slate-800">27 May</p>
                 </div>
