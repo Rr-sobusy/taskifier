@@ -28,13 +28,17 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+import { Checkbox } from '@/components/ui/checkbox'
 import { format } from "date-fns"
 
 import { ClipboardList, LucideIcon, Airplay, FilePenLine, CalendarDays } from 'lucide-react'
 
-type AddTaskType = {
+interface AddTaskType {
   children: React.ReactNode
 }
+
+type TagType = "Planning" | "Development" | "Review" | "Testing" | "Production"
+
 
 const Icons: { iconName: string, icon: LucideIcon }[] = [
   { iconName: "ClipboardList", icon: ClipboardList },
@@ -51,10 +55,13 @@ const Icons: { iconName: string, icon: LucideIcon }[] = [
 
 const Colors: string[] = ["#194A66", "#DA6051", "#46919F", "#039856"]
 
+const Tags = ['Production', 'Planning', 'Production'] as TagType[]
+
+
 const RenderIcons = ({ children }: { children?: React.ReactNode }) => {
   return (
     <Select>
-      <SelectTrigger className="w-full border h-10 rounded-md flex items-center justify-center">
+      <SelectTrigger className="w-full border h-10 rounded-md text-sm font-medium  flex items-center justify-center hover:bg-accent">
         <SelectValue placeholder="Select an icon" />
       </SelectTrigger>
       <SelectContent className="flex flex-col justify-center">
@@ -72,7 +79,7 @@ const RenderIcons = ({ children }: { children?: React.ReactNode }) => {
 
 const RenderBgColor = () => (
   <Select>
-    <SelectTrigger className="w-full border h-10 rounded-md flex items-center justify-center">
+    <SelectTrigger className="w-full border h-10 rounded-md text-sm font-medium flex items-center justify-center hover:bg-accent">
       <SelectValue placeholder="Select a fruit" />
     </SelectTrigger>
     <SelectContent className="flex flex-col justify-center">
@@ -86,6 +93,33 @@ const RenderBgColor = () => (
       </SelectGroup>
     </SelectContent>
   </Select>
+)
+
+const RenderTags = () => (
+  <Popover>
+    <PopoverTrigger asChild>
+      <Button
+        variant={"outline"}
+      >
+        <p>Choose tags</p>
+      </Button>
+    </PopoverTrigger>
+    <PopoverContent className="w-full flex flex-col gap-1">
+        {
+          Tags.map((tag)=>{
+            return ( <div className="flex items-center gap-2 space-x-2 space-y-2">
+            <Checkbox className="" id="terms" />
+            <label
+              htmlFor="terms"
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            >
+             {tag}
+            </label>
+          </div>)
+          })
+        }
+    </PopoverContent>
+  </Popover>
 )
 
 
@@ -122,8 +156,6 @@ const AddTask = ({ children }: AddTaskType) => {
               />
             </PopoverContent>
           </Popover>
-          <Label className="font-semibold">Target Completion Date</Label>
-         
           <div className="flex gap-2">
             <div className="flex flex-1 flex-col gap-2">
               <Label className="font-semibold">Task Icon</Label>
@@ -135,7 +167,7 @@ const AddTask = ({ children }: AddTaskType) => {
             </div>
           </div>
           <Label className="font-semibold">Task Title</Label>
-          <Input type="text" />
+          <RenderTags />
         </div>
         <DialogFooter>
           <Button className="w-full bg-primary hover:bg-accent-foreground">Create Task</Button>
