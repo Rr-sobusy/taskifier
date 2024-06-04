@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react'
+import React, { Dispatch, SetStateAction } from 'react'
 import {
   Dialog,
   DialogContent,
@@ -32,6 +32,7 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { format } from "date-fns"
 
 import { ClipboardList, LucideIcon, Airplay, FilePenLine, CalendarDays } from 'lucide-react'
+import { SelectSingleEventHandler } from 'react-day-picker'
 
 interface AddTaskType {
   children: React.ReactNode
@@ -55,7 +56,7 @@ const Icons: { iconName: string, icon: LucideIcon }[] = [
 
 const Colors: string[] = ["#194A66", "#DA6051", "#46919F", "#039856"]
 
-const Tags = ['Production', 'Planning', 'Production'] as TagType[]
+const Tags = ['Production', 'Planning', 'Production', "Development", "Review", "Testing"] as TagType[]
 
 
 const RenderIcons = ({ children }: { children?: React.ReactNode }) => {
@@ -95,6 +96,26 @@ const RenderBgColor = () => (
   </Select>
 )
 
+const RenderCalendar = ({ date, setDate }:
+  { date: Date, setDate: SelectSingleEventHandler | Dispatch<SetStateAction<Date>> }) => (<Popover>
+    <PopoverTrigger asChild>
+      <Button
+        variant={"outline"}
+      >
+        <CalendarDays className="mr-2 h-4 w-4" />
+        {date ? format(date, "PPP") : <span>Pick a date</span>}
+      </Button>
+    </PopoverTrigger>
+    <PopoverContent className="w-auto p-0" align="start">
+      <Calendar
+        mode="single"
+        selected={date}
+        onSelect={setDate}
+        initialFocus
+    />
+  </PopoverContent>
+</Popover>)
+
 const RenderTags = () => (
   <Popover>
     <PopoverTrigger asChild>
@@ -104,27 +125,27 @@ const RenderTags = () => (
         <p>Choose tags</p>
       </Button>
     </PopoverTrigger>
-    <PopoverContent className="w-full flex flex-col gap-1">
-        {
-          Tags.map((tag)=>{
-            return ( <div className="flex items-center gap-2 space-x-2 space-y-2">
+    <PopoverContent className="w-full grid grid-cols-3 gap-1">
+      {
+        Tags.map((tag) => {
+          return (<div className="flex items-center gap-2 max-w-xl hover:bg-accent p-1">
             <Checkbox className="" id="terms" />
             <label
               htmlFor="terms"
               className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
             >
-             {tag}
+              {tag}
             </label>
           </div>)
-          })
-        }
+        })
+      }
     </PopoverContent>
   </Popover>
 )
 
 
 const AddTask = ({ children }: AddTaskType) => {
-  const [date, setDate] = React.useState<Date>()
+  const [date, setDate] = React.useState<Date>(new Date())
   return (
     <Dialog>
       <DialogTrigger>{children}</DialogTrigger>
@@ -137,25 +158,8 @@ const AddTask = ({ children }: AddTaskType) => {
           <Input type="text" />
           <Label className="font-semibold">Task Description</Label>
           <Textarea />
-          <Label className="font-semibold">Target Completion Date</Label>
-          <Popover>
-            <PopoverTrigger asChild>
-              <Button
-                variant={"outline"}
-              >
-                <CalendarDays className="mr-2 h-4 w-4" />
-                {date ? format(date, "PPP") : <span>Pick a date</span>}
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent className="w-auto p-0" align="start">
-              <Calendar
-                mode="single"
-                selected={date}
-                onSelect={setDate}
-                initialFocus
-              />
-            </PopoverContent>
-          </Popover>
+          <Label className="font-semibold">Task Title</Label>
+          <RenderTags />
           <div className="flex gap-2">
             <div className="flex flex-1 flex-col gap-2">
               <Label className="font-semibold">Task Icon</Label>
@@ -166,8 +170,8 @@ const AddTask = ({ children }: AddTaskType) => {
               <RenderBgColor />
             </div>
           </div>
-          <Label className="font-semibold">Task Title</Label>
-          <RenderTags />
+          <Label className="font-semibold">Target Completion Date</Label>
+          <RenderCalendar date={date} setDate={setDate} />
         </div>
         <DialogFooter>
           <Button className="w-full bg-primary hover:bg-accent-foreground">Create Task</Button>
