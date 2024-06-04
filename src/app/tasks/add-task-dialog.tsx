@@ -112,9 +112,9 @@ const RenderCalendar = ({ date, setDate }:
         selected={date}
         onSelect={setDate}
         initialFocus
-    />
-  </PopoverContent>
-</Popover>)
+      />
+    </PopoverContent>
+  </Popover>)
 
 const RenderTags = () => (
   <Popover>
@@ -129,7 +129,7 @@ const RenderTags = () => (
       {
         Tags.map((tag) => {
           return (<div className="flex items-center gap-2 max-w-xl hover:bg-accent p-1">
-            <Checkbox className="" id="terms" />
+            <Checkbox className="border-foreground data-[state=checked]:bg-foreground" id="terms" />
             <label
               htmlFor="terms"
               className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
@@ -153,7 +153,7 @@ const AddTask = ({ children }: AddTaskType) => {
         <DialogHeader>
           <DialogTitle className="font-extrabold tracking-tighter text-center">Add New Task</DialogTitle>
         </DialogHeader>
-        <div className="flex flex-col gap-2">
+        <form action="">  <div className="flex flex-col gap-2">
           <Label className="font-semibold">Task Title</Label>
           <Input type="text" />
           <Label className="font-semibold">Task Description</Label>
@@ -173,9 +173,9 @@ const AddTask = ({ children }: AddTaskType) => {
           <Label className="font-semibold">Target Completion Date</Label>
           <RenderCalendar date={date} setDate={setDate} />
         </div>
-        <DialogFooter>
-          <Button className="w-full bg-primary hover:bg-accent-foreground">Create Task</Button>
-        </DialogFooter>
+          <DialogFooter className="mt-3">
+            <Button className="w-full bg-primary hover:bg-accent-foreground">Create Task</Button>
+          </DialogFooter></form>
       </DialogContent>
     </Dialog>
   )
