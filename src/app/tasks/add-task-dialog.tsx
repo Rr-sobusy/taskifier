@@ -30,9 +30,12 @@ import {
 } from "@/components/ui/popover"
 import { Checkbox } from '@/components/ui/checkbox'
 import { format } from "date-fns"
+import { Cat, Dog, Fish, Rabbit, Turtle } from "lucide-react";
 
 import { ClipboardList, LucideIcon, Airplay, FilePenLine, CalendarDays } from 'lucide-react'
 import { SelectSingleEventHandler } from 'react-day-picker'
+
+import { MultiSelect } from '@/components/ui/multi-select'
 
 interface AddTaskType {
   children: React.ReactNode
@@ -143,9 +146,41 @@ const RenderTags = () => (
   </Popover>
 )
 
+const frameworksList = [
+  {
+    value: "react",
+    label: "React",
+    icon: Turtle,
+  },
+  {
+    value: "angular",
+    label: "Angular",
+    icon: Cat,
+  },
+  {
+    value: "vue",
+    label: "Vue",
+    icon: Dog,
+  },
+  {
+    value: "svelte",
+    label: "Svelte",
+    icon: Rabbit,
+  },
+  {
+    value: "ember",
+    label: "Ember",
+    icon: Fish,
+  },
+];
 
 const AddTask = ({ children }: AddTaskType) => {
   const [date, setDate] = React.useState<Date>(new Date())
+
+  const [selectedFrameworks, setSelectedFrameworks] = React.useState<string[]>([
+    "react", //optional
+    "angular", //optional
+  ]);
   return (
     <Dialog>
       <DialogTrigger>{children}</DialogTrigger>
@@ -159,7 +194,16 @@ const AddTask = ({ children }: AddTaskType) => {
           <Label className="font-semibold">Task Description</Label>
           <Textarea />
           <Label className="font-semibold">Task Title</Label>
-          <RenderTags />
+          <div className="max-w-xl max-h-[200px] overflow-y-auto">
+            <MultiSelect
+              options={frameworksList}
+              onValueChange={setSelectedFrameworks}
+              defaultValue={selectedFrameworks} 
+              placeholder="Select frameworks" 
+              animation={2} 
+              variant="secondary" 
+            />
+          </div>
           <div className="flex gap-2">
             <div className="flex flex-1 flex-col gap-2">
               <Label className="font-semibold">Task Icon</Label>

@@ -31,6 +31,12 @@ const TaskCard = (props: TaskCarkProps) => {
                         <Badge className="rounded-sm bg-accent" variant="outline">
                             <p>rex</p>
                         </Badge>
+                        <Badge className="rounded-sm bg-accent" variant="outline">
+                            <p>rex</p>
+                        </Badge>
+                        <Badge className="rounded-sm bg-accent" variant="outline">
+                            <p>rex</p>
+                        </Badge>
                     </div>
                     <CardTitle className="text-[.925rem] tracking-normal font-extrabold leading-none">Craft a blog about the evolution of UI/UX.</CardTitle>
                 </div>
