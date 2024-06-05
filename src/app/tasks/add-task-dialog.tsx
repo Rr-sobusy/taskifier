@@ -40,19 +40,6 @@ interface AddTaskType {
 }
 
 
-const Icons: { iconName: string, icon: LucideIcon }[] = [
-  { iconName: "ClipboardList", icon: ClipboardList },
-  {
-    iconName: "Airplay",
-    icon: Airplay
-  }, {
-    iconName: "Airplay",
-    icon: Airplay
-  }, {
-    iconName: "FilePenLine",
-    icon: FilePenLine
-  }];
-
 const Colors: string[] = ["#194A66", "#DA6051", "#46919F", "#039856"]
 
 type TagType = {
