@@ -1,10 +1,11 @@
 "use client"
 
 import React, { Dispatch, SetStateAction } from 'react'
+import SelectIcon from './add-task-icons'
+
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogFooter,
   DialogTitle,
@@ -28,20 +29,15 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
-import { Checkbox } from '@/components/ui/checkbox'
-import { format } from "date-fns"
-import { Cat, Dog, Fish, Rabbit, Turtle } from "lucide-react";
-
-import { ClipboardList, LucideIcon, Airplay, FilePenLine, CalendarDays } from 'lucide-react'
-import { SelectSingleEventHandler } from 'react-day-picker'
-
 import { MultiSelect } from '@/components/ui/multi-select'
+import { format } from "date-fns"
+import { Braces,  GlobeLock, NotebookPen,  Star, TabletSmartphone,ClipboardList, LucideIcon, Airplay, FilePenLine, CalendarDays } from "lucide-react";
+import { type SelectSingleEventHandler } from 'react-day-picker'
+
 
 interface AddTaskType {
   children: React.ReactNode
 }
-
-type TagType = "Planning" | "Development" | "Review" | "Testing" | "Production"
 
 
 const Icons: { iconName: string, icon: LucideIcon }[] = [
@@ -59,30 +55,41 @@ const Icons: { iconName: string, icon: LucideIcon }[] = [
 
 const Colors: string[] = ["#194A66", "#DA6051", "#46919F", "#039856"]
 
-const Tags = ['Production', 'Planning', 'Production', "Development", "Review", "Testing"] as TagType[]
-
-
-const RenderIcons = ({ children }: { children?: React.ReactNode }) => {
-  return (
-    <Select>
-      <SelectTrigger className="w-full border h-10 rounded-md text-sm font-medium  flex items-center justify-center hover:bg-accent">
-        <SelectValue placeholder="Select an icon" />
-      </SelectTrigger>
-      <SelectContent className="flex flex-col justify-center">
-        <SelectGroup className="grid grid-cols-3 gap-1">
-          {
-            Icons.map((Icon, key) => (
-              <SelectItem className="border pl-7" value={key.toString()}>
-                <Icon.icon size={23} className="text-foreground" />
-              </SelectItem>))
-          }
-        </SelectGroup>
-      </SelectContent>
-    </Select>)
+type TagType = {
+  value: string, label: string, icon: LucideIcon
 }
 
-const RenderBgColor = () => (
-  <Select>
+
+const tagLists = [
+  {
+    value: "Production",
+    label: "Production",
+    icon: GlobeLock,
+  },
+  {
+    value: "Planning",
+    label: "Planning",
+    icon: NotebookPen,
+  },
+  {
+    value: "Development",
+    label: "Development",
+    icon: Braces,
+  },
+  {
+    value: "Testing",
+    label: "Testing",
+    icon: TabletSmartphone,
+  },
+  {
+    value: "Review",
+    label: "Review",
+    icon: Star,
+  },
+] as TagType[]
+
+const RenderBgColor = ({...rest}) => (
+  <Select name="select" {...rest}>
     <SelectTrigger className="w-full border h-10 rounded-md text-sm font-medium flex items-center justify-center hover:bg-accent">
       <SelectValue placeholder="Select a fruit" />
     </SelectTrigger>
@@ -101,7 +108,7 @@ const RenderBgColor = () => (
 
 const RenderCalendar = ({ date, setDate }:
   { date: Date, setDate: SelectSingleEventHandler | Dispatch<SetStateAction<Date>> }) => (<Popover>
-    <PopoverTrigger asChild>
+    <PopoverTrigger name='calendar' asChild>
       <Button
         variant={"outline"}
       >
@@ -129,58 +136,21 @@ const RenderTags = () => (
       </Button>
     </PopoverTrigger>
     <PopoverContent className="w-full grid grid-cols-3 gap-1">
-      {
-        Tags.map((tag) => {
-          return (<div className="flex items-center gap-2 max-w-xl hover:bg-accent p-1">
-            <Checkbox className="border-foreground data-[state=checked]:bg-foreground" id="terms" />
-            <label
-              htmlFor="terms"
-              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-            >
-              {tag}
-            </label>
-          </div>)
-        })
-      }
     </PopoverContent>
   </Popover>
 )
 
-const frameworksList = [
-  {
-    value: "react",
-    label: "React",
-    icon: Turtle,
-  },
-  {
-    value: "angular",
-    label: "Angular",
-    icon: Cat,
-  },
-  {
-    value: "vue",
-    label: "Vue",
-    icon: Dog,
-  },
-  {
-    value: "svelte",
-    label: "Svelte",
-    icon: Rabbit,
-  },
-  {
-    value: "ember",
-    label: "Ember",
-    icon: Fish,
-  },
-];
-
 const AddTask = ({ children }: AddTaskType) => {
   const [date, setDate] = React.useState<Date>(new Date())
 
-  const [selectedFrameworks, setSelectedFrameworks] = React.useState<string[]>([
-    "react", //optional
-    "angular", //optional
-  ]);
+  const [tags, selectTag] = React.useState<string[]>()
+
+  const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    console.log(formData.get("calendar"))
+  }
   return (
     <Dialog>
       <DialogTrigger>{children}</DialogTrigger>
@@ -188,7 +158,7 @@ const AddTask = ({ children }: AddTaskType) => {
         <DialogHeader>
           <DialogTitle className="font-extrabold tracking-tighter text-center">Add New Task</DialogTitle>
         </DialogHeader>
-        <form action="">  <div className="flex flex-col gap-2">
+        <form onSubmit={submitHandler}>  <div className="flex flex-col gap-2">
           <Label className="font-semibold">Task Title</Label>
           <Input type="text" />
           <Label className="font-semibold">Task Description</Label>
@@ -196,18 +166,19 @@ const AddTask = ({ children }: AddTaskType) => {
           <Label className="font-semibold">Task Title</Label>
           <div className="max-w-xl max-h-[200px] overflow-y-auto">
             <MultiSelect
-              options={frameworksList}
-              onValueChange={setSelectedFrameworks}
-              defaultValue={selectedFrameworks} 
-              placeholder="Select frameworks" 
-              animation={2} 
-              variant="secondary" 
+              options={tagLists}
+              onValueChange={selectTag}
+              defaultValue={tags}
+              className="text-sm font-medium"
+              placeholder="Select frameworks"
+              animation={2}
+              variant="inverted"
             />
           </div>
           <div className="flex gap-2">
             <div className="flex flex-1 flex-col gap-2">
               <Label className="font-semibold">Task Icon</Label>
-              <RenderIcons />
+              <SelectIcon />
             </div>
             <div className="flex flex-1 flex-col gap-2">
               <Label className="font-semibold">Choose Task Icon</Label>
@@ -218,8 +189,9 @@ const AddTask = ({ children }: AddTaskType) => {
           <RenderCalendar date={date} setDate={setDate} />
         </div>
           <DialogFooter className="mt-3">
-            <Button className="w-full bg-primary hover:bg-accent-foreground">Create Task</Button>
-          </DialogFooter></form>
+            <Button type="submit" className="w-full bg-primary hover:bg-accent-foreground">Create Task</Button>
+          </DialogFooter>
+        </form>
       </DialogContent>
     </Dialog>
   )

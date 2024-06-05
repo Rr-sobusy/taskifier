@@ -56,12 +56,10 @@ const TaskCard = (props: TaskCarkProps) => {
             <CardContent className="flex flex-col gap-1">
                 <Separator className="my-4" />
                 <div className="flex items-center gap-4">
-                    <Progress className="h-[6px] basis-[90%]" value={80} />
+                    <Progress className="h-[5px] basis-[90%]" value={80} />
                     <p className="text-[.75rem] font-semibold">90%</p>
                 </div>
-                <div className="flex flex-row items-center gap-2">
                     <p className="text-[.75rem] font-semibold">1/4 sub-tasks completed</p>
-                </div>
                 <div className="flex flex-row items-center gap-2">
                     <p className="text-[.75rem] dark:text-slate-200 text-slate-600">Last updated: </p>
                     <p className="text-[.75rem] font-semibold dark:text-slate-300 text-slate-800">27 May</p>

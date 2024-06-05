@@ -55,7 +55,7 @@ interface MultiSelectProps
     value: string;
     icon?: React.ComponentType<{ className?: string }>;
   }[];
-  onValueChange: (value: string[]) => void;
+  onValueChange: (value: any) => void;
   defaultValue?: string[];
   placeholder?: string;
   animation?: number;
@@ -183,7 +183,7 @@ export const MultiSelect = React.forwardRef<
               </div>
             ) : (
               <div className="flex items-center justify-between w-full mx-auto">
-                <span className="text-sm text-muted-foreground mx-3">
+                <span className="text-sm font-medium text-foreground mx-3">
                   {placeholder}
                 </span>
                 <ChevronDown className="h-4 cursor-pointer text-muted-foreground mx-2" />
