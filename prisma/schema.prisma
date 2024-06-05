@@ -128,8 +128,4 @@ model Tasks {
   createdAt            DateTime  @default(now())
 }
 
-model Tags {
-  taskId              Int
-  
-}
 

@@ -33,6 +33,7 @@ import { MultiSelect } from '@/components/ui/multi-select'
 import { format } from "date-fns"
 import { Braces,  GlobeLock, NotebookPen,  Star, TabletSmartphone,ClipboardList, LucideIcon, Airplay, FilePenLine, CalendarDays } from "lucide-react";
 import { type SelectSingleEventHandler } from 'react-day-picker'
+import { useForm } from 'react-hook-form'
 
 
 interface AddTaskType {
@@ -128,16 +129,18 @@ const RenderTags = () => (
 )
 
 const AddTask = ({ children }: AddTaskType) => {
+
+  const {register, handleSubmit} = useForm()
+
+
+
   const [date, setDate] = React.useState<Date>(new Date())
 
   const [tags, selectTag] = React.useState<string[]>()
 
-  const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const formData = new FormData(e.currentTarget);
-    console.log(formData.get("calendar"))
-  }
+  const submitHandler = handleSubmit((value)=>{
+        console.log(value)
+  })
   return (
     <Dialog>
       <DialogTrigger>{children}</DialogTrigger>
@@ -147,7 +150,8 @@ const AddTask = ({ children }: AddTaskType) => {
         </DialogHeader>
         <form onSubmit={submitHandler}>  <div className="flex flex-col gap-2">
           <Label className="font-semibold">Task Title</Label>
-          <Input type="text" />
+          <Input {...register("taskTitle")} type="text" />
+          <span>rex</span>
           <Label className="font-semibold">Task Description</Label>
           <Textarea />
           <Label className="font-semibold">Task Title</Label>
